@@ -1,0 +1,166 @@
+<!DOCTYPE html> 
+
+<head>
+    <title>Magic Kingdom</title>
+    <link rel="stylesheet" type="text/css" href="../css/global.css"/>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to the Magic Kingdom!</h1>
+    </header>
+
+    <nav>Navigation goes here, eventually</nav>
+
+    <main>
+        <section id="rideTimes">
+            <h2>Hopefully ride times will appear here</h2>
+            <div id="rideList">
+
+            </div>
+            <button id="myBtn">Click here</button>
+        </section>
+    </main>
+
+    <script>
+        window.onload = async () => {
+            let list = document.getElementById('rideList');
+            let ridesHeader = document.getElementsByTagName('h2');
+            let sortButton = document.getElementById('sortButton');
+            let rideDetails = document.getElementsByClassName('rideDetails');
+
+
+            let response = await fetch('../json/magic_kingdom_data.json'); 
+            //await = runUntilFinished
+
+            let data     = await response.json();    
+            //.json() converts the text response into js data
+            
+            let lands = data.lands; // Sets the variable "lands" to pull the lands obj
+            
+            // For each of the entries in data.lands
+            for (let lands of data.lands) {
+                // Setup the indexing
+                let i = 0;
+                // Iterate the indexing
+                i++;
+                //Just a little check to make sure the correct information is being pulled through
+                console.log(lands.name, lands.rides);
+
+
+                // Target the inner html of the "list" item (rideList id on the ul) and pop in the <h3>
+                    list.innerHTML += 
+                    `<h3 class="landTitle">${lands.name}</h3>`
+                
+                    // Now for ther rides bit!
+                    
+                    // For each ride in each lands obj
+                    for (let r of lands.rides) {
+                    // Target the inner html of the "list" item (rideList id on the ul) and pop in the <li> elements in the ul
+
+                    let is_open = r.is_open;
+
+                    if (is_open == true) {
+                        is_open = "It's open"
+                        console.log(is_open);
+                    } else {
+                        r.is_open = "It's not open"
+                        console.log(is_open);
+                    };
+
+
+                    list.innerHTML +=
+                    `<div class="rideDetails">
+                        <p class="rideTitle">${r.name}</p>
+                        <p class="rideTime">The current wait time is <span>${r.wait_time}</span> minutes</p>
+                        <p class="isOpen">${r.is_open}</p>
+                    </div>`;
+                    }
+
+                    list.innerHTML += `<button class="hideBtn">Hide</button>`
+                    
+            }
+        };
+
+        let rideStatus = document.getElementsByClassName('rideTime');
+        let element = document.getElementById('rideList');
+        let myBtn = document.getElementById('myBtn');
+        let hideBtn = document.getElementsByClassName('hideBtn');
+
+        function showBtnFn() {
+
+            if (element.style.display == "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            };
+        }
+
+        function hideRideFn() {
+
+        if (rideList.style.display == "none") {
+            rideList.style.display = "block";
+        } else {
+            rideList.style.display = "none";
+        };
+        }
+
+        myBtn.addEventListener('click', showBtnFn);
+        // hideBtn.addEventListener('click', hideRideFn);
+
+    </script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
