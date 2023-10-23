@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<section id="rideTimes">
+    <h2>Ride Times!</h2>
+
+    <div id="worldShowcase">
+        <h3>World Showcase</h3>
+        <div id="rideList"></div>
+    </div>
+</section>
+
+
+
+
+
+    <script>
+    let data = {
+        "lands": [
+            {
+            "id": 897,
+            "name": "World Celebration",
+            "rides": [
+                {
+                "id": 2495,
+                "name": "Disney and Pixar Short Film Festival",
+                "is_open": true,
+                "wait_time": 0,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                },
+                {
+                "id": 155,
+                "name": "Journey Into Imagination With Figment",
+                "is_open": true,
+                "wait_time": 10,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                },
+                {
+                "id": 159,
+                "name": "Spaceship Earth",
+                "is_open": true,
+                "wait_time": 10,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                }
+            ]
+            },
+            {
+            "id": 896,
+            "name": "World Discovery",
+            "rides": [
+                {
+                "id": 10916,
+                "name": "Guardians of the Galaxy: Cosmic Rewind",
+                "is_open": true,
+                "wait_time": 0,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                },
+                {
+                "id": 158,
+                "name": "Mission: SPACE",
+                "is_open": true,
+                "wait_time": 10,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                },
+                {
+                "id": 160,
+                "name": "Test Track",
+                "is_open": true,
+                "wait_time": 90,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                },
+                {
+                "id": 10900,
+                "name": "Test Track Presented by Chevrolet Single Rider",
+                "is_open": true,
+                "wait_time": 0,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                }
+            ]
+            },
+            {
+            "id": 898,
+            "name": "World Nature",
+            "rides": [
+                {
+                "id": 7323,
+                "name": "Awesome Planet",
+                "is_open": true,
+                "wait_time": 0,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                },
+                {
+                "id": 156,
+                "name": "Living with the Land",
+                "is_open": true,
+                "wait_time": 5,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                },
+                {
+                "id": 151,
+                "name": "Soarin' Over California",
+                "is_open": true,
+                "wait_time": 75,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                },
+                {
+                "id": 153,
+                "name": "The Seas with Nemo & Friends",
+                "is_open": false,
+                "wait_time": 0,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                },
+                {
+                "id": 152,
+                "name": "Turtle Talk With Crush",
+                "is_open": true,
+                "wait_time": 15,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                }
+            ]
+            },
+            {
+            "id": 64,
+            "name": "World Showcase",
+            "rides": [
+                {
+                "id": 829,
+                "name": "Canada Far and Wide in Circle-Vision 360",
+                "is_open": true,
+                "wait_time": 0,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                },
+                {
+                "id": 2679,
+                "name": "Frozen Ever After",
+                "is_open": true,
+                "wait_time": 50,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                },
+                {
+                "id": 466,
+                "name": "Gran Fiesta Tour Starring The Three Caballeros",
+                "is_open": true,
+                "wait_time": 5,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                },
+                {
+                "id": 6701,
+                "name": "Meet Anna and Elsa at Royal Sommerhus",
+                "is_open": true,
+                "wait_time": 25,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                },
+                {
+                "id": 10914,
+                "name": "Remy's Ratatouille Adventure",
+                "is_open": true,
+                "wait_time": 45,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                },
+                {
+                "id": 10915,
+                "name": "Remy's Ratatouille Adventure Single Rider",
+                "is_open": true,
+                "wait_time": 0,
+                "last_updated": "2023-09-27T16:05:32.000Z"
+                }
+            ]
+            }
+        ],
+        "rides": []
+    }
+    let list = document.getElementById('rideList');
+    let ridesHeader = document.getElementsByTagName('h2');
+    let sortButton = document.getElementById('sortButton');
+    let container = document.getElementById('rideTimes');
+    
+    let lands = data.lands; // Sets the variable "lands" to pull the lands obj
+    
+    // For each of the entries in data.lands
+    for (let lands of data.lands) {
+
+        // Setup the indexing
+        let i = 0;
+        // Iterate the indexing
+        i++;
+        
+        // Target the inner html of the "list" item (rideList id on the ul) and pop in the <h3>
+            list.innerHTML += 
+            `<h3 class="landTitle">${lands.name}</h3>`
+                                
+            // Now for the rides bit!
+            // For each ride in each lands obj
+            for (let r of lands.rides) {
+                // Target the inner html of the "list" item (rideList id on the ul) and pop in the <li> elements in the ul
+                    
+                    let is_open = r.is_open;
+                    
+                    if (r.is_open == true) {
+                r.is_open = "It's open"
+            } else {
+                r.is_open = "It's not open"
+            };
+            
+            list.innerHTML +=
+            `<div class="rideDetails">
+                <p class="rideTitle">${r.name}</p>
+                <p class="rideTime">${r.wait_time}</p>
+                <p class="isOpen">${r.is_open}</p>
+                </div>`;
+            }
+            
+            
+            
+            
+        }
+        
+    
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

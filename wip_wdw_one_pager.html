@@ -1,0 +1,3512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDW: One Pager</title>
+    <style>
+        /* Add CSS styles for navigation and sections */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            text-align: center;
+            width: 100%;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            flex-wrap: wrap;
+            min-width: fit-content;
+        }
+
+        nav li {
+            margin: 0 10px;
+            position: relative;
+            width: max-content;
+            padding: 15px 10px;
+            flex: auto;
+        }
+
+        nav li:hover {
+            background-color: teal;
+            color: black;
+        }
+
+        li#nav-stay:hover {
+            background-color: purple;
+        }
+
+        li#nav-play:hover {
+            background-color: orangered;
+        }
+
+        li#nav-eat:hover {
+            background-color:darkgoldenrod;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: white;
+        }
+
+        a.externalLink::after {
+            content: " 🔗";
+            font-size: 0.8em;
+        }
+
+        /* Hide nested ul by default */
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            left: 0;
+            top: 100%;
+        }
+
+        /* Show nested ul on hover of parent li */
+        nav li:hover > ul {
+            display: block;
+            width: -webkit-fill-available;
+            z-index: 1;
+        }
+
+        /* Style for nested links */
+        nav ul ul li {
+            margin: 0;
+            display: block;
+            border: 1px solid green;
+            width: auto;
+            text-align: left;
+        }
+
+        #nav-resorts:hover {
+            background-color: pink;
+        }
+
+        #nav-parks:hover {
+            background-color: darkmagenta;
+        }
+
+        #nav-dining:hover {
+            background-color: darkorange;
+        }
+
+        main {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        section {
+            padding: 20px;
+            flex: 1 1 17em;
+            border: 1px solid teal;
+            margin: 5px 5px;
+        }
+
+        section h2 {
+            color: whitesmoke;
+            padding: 10px;
+            margin-top: -10px;
+        }
+
+        section#food h2 {
+            background-color: purple;
+        }
+
+        #discover div {
+            border: 1px solid goldenrod;
+            margin-bottom: 10px;
+        }
+
+        
+        #discover h3 {
+            background: goldenrod;
+            padding: 5px 10px;
+            margin-top: 0;
+        }
+
+        section#discover h2 {
+            background-color: darkblue;
+        }
+
+        #discover p, #discover ul {
+            padding: 10px;
+        }
+
+        ul > h4 {
+            padding: 0;
+            margin: 0;
+        }
+
+        #discover ul {
+            list-style: none;
+            line-height: 2em;
+            margin-top: -10px;
+            display: inline-block;
+            vertical-align: top;
+            width: 30%;
+            margin-left: 1px;
+        }
+
+        #discover ul ul {
+            width: 100%;
+            display: block;
+        }
+
+        ul ul li li {
+            list-style-type: disc;
+            margin-left: 7px;
+        }
+
+        i::before {
+            content: '\201c';
+            font-size: 6em;
+            position: absolute;
+            margin-top: -20px;
+            margin-left: -50px;
+            color: #eee;
+            opacity: 0.5;
+        }
+
+        i::after {
+            content: '\201d';
+            margin-right: -50px;
+            font-size: 6em;
+            position: absolute;
+            margin-top: -20px;
+            color: #eee;
+            opacity: 0.5;
+        }
+
+        .speechBubble {
+            position: relative;
+            background: #adc5c7;
+            border-radius: 0.4em;
+            margin: auto;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .speechBubble:after {
+            content: '';
+            position: absolute;
+            top: 0px;
+            left: 100px;
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+            border-bottom-color: #adc5c7;
+            border-top: 0;
+            border-left: 0;
+            margin-top: -15px;
+        }
+
+        div#restaurantList {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        .placeDetails {
+            width: 100%;
+            border: 1px solid teal;
+            margin: 0 0 10px;
+            padding: 10px 10px 0;
+        }
+        
+        h3.placeTitle {
+            background-color: teal;
+            color: whitesmoke;
+            padding: 10px;
+            margin-top: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            text-align: center;
+            margin-bottom: -15px;
+        }
+
+
+        span.location {
+            border: 1px solid white;
+            padding: 3px;
+            background-color: whitesmoke;
+            border-radius: 17px;
+            color: teal;
+            width: 20px;
+            height: 20px;
+            align-self: center;
+        }
+
+        span.location.expensive {
+            color: darkred;
+        }
+        
+        .info {
+            font-size: 0.9em;
+            margin-bottom: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            padding-top: 10px;
+       }
+
+        span.infoCost {
+            display: block;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        /* Accordion */
+
+        .placeTitle:before {
+            content: '\02795'; /* Unicode character for "plus" sign (+) */
+            font-size: 13px;
+            color: #777;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:before {
+            content: "\2796"; /* Unicode character for "minus" sign (-) */
+        }
+
+        section#history {
+            flex: initial;
+        }
+
+        #history h2 {
+            background-color: darkolivegreen;
+        }
+
+
+        /* Ride Times section */
+
+        section#rideTimes {
+            padding: inherit;
+        }
+
+        #rideTimes header {
+            margin-bottom: -10px;
+        }
+
+        div#rideList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .landDetails {
+            /* margin-top: 10px; */
+            width: 45%;
+        }
+
+        .landTitle {
+            background-color: brown;
+            color: whitesmoke;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 0px;
+        }
+
+        .rideDetails {
+            border: 1px solid teal;
+            padding: 5px 10px;
+            margin: 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rideDetails span {
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: whitesmoke;
+        }
+
+        p.rideTitle {
+            width: 43%;
+        }
+
+        .open {
+            background-color: #0c9717;
+            font-weight: bold;
+        }
+
+        .closed {
+            background-color: #970c0c;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .waitTime {
+            width: 42%;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        p.longWait {
+            color: red;
+            font-weight: bold;
+        }
+
+        #footer {
+            background-color: #333;
+            color: whitesmoke;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>A Beginner's Guide to Walt Disney World</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li id="nav-resorts">
+                <a href="#">Where to Stay</a>
+                <ul>
+                    <li><a href="#">Value Resorts</a></li>
+                    <li><a href="#">Moderate Resorts</a></li>
+                    <li><a href="#">Deluxe Resorts</a></li>
+                    <li><a href="#">Good Neighbour Hotels</a></li>
+                </ul>
+            </li>
+            <li id="nav-parks">
+                <a href="#">Parks</a>
+                <ul>
+                    <li><a href="#">Magic Kingdom</a></li>
+                    <li><a href="#">EPCOT</a></li>
+                    <li><a href="#">Hollywood Studios</a></li>
+                    <li><a href="#">Animal Kingdom</a></li>
+                </ul>
+            </li>
+            <li id="nav-dining">
+                <a href="#">Dining</a>
+                <ul>
+                    <li><a href="#">Quick Service</a></li>
+                    <li><a href="#">Table Service</a></li>
+                    <li><a href="#">Fine and Signature Dining</a></li>
+                    <li><a href="#">Character Dining</a></li>
+                </ul>
+            </li>
+            <li><a href="https://www.disneyholidays.co.uk/" target="_blank" class="externalLink">Disney Holidays</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="pageTitle">
+        <h1>EPCOT</h1>
+        <h2>"Where the Impossible Becomes Possible"</h2>
+    </header>
+
+    <main>
+
+        <section id="discover">
+            <h2>The Lands of EPCOT</h2>
+            <p>There are four unique lands that make up EPCOT:</p>
+            <div>
+                <h3>World Celebration</h3>
+                <p class="speechBubble"><i>Connect with a Global Community</i></p>
+
+                <ul>
+                    <h4>Attractions</h4>
+                    <li>Spaceship Earth</li>
+                    <li>Imagination! Pavillion</li>
+                </ul>
+
+                <ul>
+                    <h4>Entertainment</h4>
+                    <li>JAMMitors</li>
+                </ul>
+                
+                <ul>
+                    <h4>Shopping</h4>
+                    <li>Creations Shop</li>
+                    <li>Pin Traders Headquarters</li>
+                </ul>
+                
+                <ul>
+                    <h4>Restaurants</h4>
+                    <li>Connections Cafe and Eatery</li>
+                    <li>Club Cool</li>
+                    <li>Popcorn Stand</li>
+                </ul>
+            </div>         
+            
+            <div>
+                <h3>World Discovery</h3>
+                <p class="speechBubble"><i>Explore the Wonders of Science and Technology</i></p>
+                
+                <ul>
+                    <h4>Attractions</h4>
+                    <li>Mission: SPACE</li>
+                    <li>Test Track</li>
+                    <li>Wonders of Xandar - Guardians of the Galaxy: Cosmic Rewind</li>
+                </ul>
+                
+                <ul>
+                    <h4>Shopping</h4>
+                    <li>Test Track SIMporium</li>
+                    <li>Treasures of Xandar</li>
+                </ul>
+                
+                <ul>
+                    <h4>Restaurants</h4>
+                    <li>Space 220</li>
+                    <li>Cool Wash (Drink Stand)</li>
+                    <li>Donut Box (Food Stand)</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>World Nature</h3>
+                <p class="speechBubble"><i>Be Amazed by Our Incredible Planet</i></p>
+                <ul>
+                    <h4>Attractions</h4>
+                    <li>The Land
+                        <ul>
+                            <li>Awesome Planet</li>
+                            <li>Living with the Land</li>
+                            <li>Soarin' Around the World</li>
+                        </ul>
+                    </li>
+                    <li>The Seas
+                        <ul>
+                            <li>The Seas with Nemo & Friends</li>
+                            <li>Turtle Talk with Crush</li>
+                            <li>The Seas - Sea Base
+                                <ul>
+                                    <li>Bruce's Shark World</li>
+                                    <li>Manatees Rehabilitation Center</li>
+                                    <li>Ocean Life - Reef Ecosystems</li>
+                                    <li>Nursery - Coastal Ecosystems</li>
+                                    <li>Lockout Chamber</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <ul>
+                    <h4>Shopping</h4>
+                    <li>The Land
+                        <ul>
+                            <li>Soarin' Tour Desk</li>
+                            <li>Green Thumb Emporium</li>
+                        </ul>
+                    </li>
+                    <li>Gift Shop</li>
+                </ul>
+                <ul>
+                    <h4>Paid For Experiences</h4>
+                    <li>Diving Tours
+                        <ul>
+                            <li>EPCOT DiveQuest</li>
+                            <li>EPCOT Seas Aqua Tour</li>
+                            <li>Dolphins iN Depth</li>
+                        </ul>
+                    </li> 
+                </ul>
+                
+                <ul>
+                    <h4>Restaurants</h4>
+                    <li>The Land
+                        <ul>
+                            <li>The Garden Grill Restaurant</li>
+                            <li>The Land Cart</li>
+                            <li>Sunshine Seasons</li>
+                        </ul>
+                    </li>
+                    <li>The Seas
+                        <ul>
+                            <li>Coral Reef Restaurant</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>World Showcase</h3>
+                <p class="speechBubble"><i>Discover Cultures Across 11 Countries</i></p>
+
+                <ul><h4>Pavillions</h4>
+                    <li>
+                        <ul>
+                            <li>Mexico</li>
+                            <li>Norway</li>
+                            <li>China</li>
+                            <li>Germany</li>
+                            <li>Italy</li>
+                            <li>The American Adventure</li>
+                            <li>Japan</li>
+                            <li>Morocco</li>
+                            <li>France</li>
+                            <li>United Kingdom</li>
+                            <li>Canada</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                        <h4>Attractions</h4>
+                        <li>Gran Fiesta Tour Starring The Three Caballeros (Mexico)</li>
+                        <li>Frozen Ever After (Norway)</li>
+                        <li>Reflections of China (China)</li>
+                        <li>The American Adventure (USA)</li>
+                        <li>Palais du Cinema (France)
+                            <ul>
+                                <li>Impressions de France (France)</li>
+                                <li>Beauty and the Beast Sing-Along (France)</li>
+                            </ul>
+                        </li>
+                        <li>Remy's Ratatouille Adventure (France)</li>
+                        <li>Canada: Far and Wide (Canada)</li>
+                        <li>DuckTales World Showcase Adventure</li>
+                    </ul>
+
+                    <ul>
+                        <h4>Entertainment</h4>
+                        <li>Epcot Forever Fireworks Show</li>
+                    </ul>
+
+                    <ul>
+                        <h4>Dining</h4>
+                        <li>Refreshment Port</li>
+                        <li>Promenade Refreshments</li>
+                        <li>Frozen Ever After Dessert Party at Epcot World Showcase</li>
+                        <li>Espresso, Coffee, and Pastries near Disney Traders</li>
+                    </ul>
+
+
+                <p>Each country in World Showcase offers a unique cultural experience, making EPCOT a celebration of global diversity and exploration.</p>
+
+            </div>
+
+        </section>
+        
+        <section id="food">
+            <h2>The Food of EPCOT</h2>
+            <p>EPCOT is known for its diverse and delicious culinary offerings from around the world. EPCOT's diverse and immersive culinary offerings are a significant part of the park's appeal, allowing visitors to embark on a global food adventure while exploring the various pavilions in World Showcase and enjoying seasonal festivals.</p>
+
+            <p>Expand each section below to learn more.</p>
+            
+            <div id="restaurantList"></div>
+        </section>
+        
+        <section id="history">
+        <h2>The History of EPCOT</h2>
+            
+        <p>EPCOT, which stands for Experimental Prototype Community of Tomorrow, is a theme park located in Walt Disney World Resort in Bay Lake, Florida. It has a rich history dating back to the vision of Walt Disney himself.</p>
+
+        <p><strong>1. Walt Disney's Vision (1960s):</strong>
+           Walt Disney's vision for EPCOT was not originally conceived as a theme park but as an actual city. He wanted to create a utopian community that would serve as a model for urban planning and technology.</p>
+        
+        <p><strong>2. Walt Disney's Passing (1966):</strong>
+           Unfortunately, Walt Disney passed away in 1966 before he could see his EPCOT vision realized. His dream of a futuristic community lived on as a concept.</p>
+        
+        <p><strong>3. EPCOT Center Opens (1982):</strong>
+           In 1982, the Walt Disney Company opened EPCOT Center (now simply known as EPCOT) as a theme park. It was divided into two main areas: Future World and World Showcase.</p>
+        
+        <p><strong>4. Future World (1982-2021):</strong>
+           Future World showcased various pavilions and attractions that highlighted technological advancements and innovations in fields such as communication, energy, transportation, and space exploration.
+           Iconic attractions in Future World included Spaceship Earth, Mission: SPACE, Test Track, and The Land pavilion.
+           Over the years, Future World underwent several renovations and changes to update its offerings and reflect evolving technologies.</p>
+        
+        <p><strong>5. World Showcase (1982-present):</strong>
+           The World Showcase portion of EPCOT featured pavilions representing 11 different countries, each with its own cultural attractions, dining options, and entertainment.
+           These countries included Mexico, Norway, China, Germany, Italy, the United States, Japan, Morocco, France, the United Kingdom, and Canada.</p>
+        
+        <p><strong>6. Transformation Announcement (2019):</strong>
+           In 2019, Disney announced a major transformation of EPCOT. The park's original vision as a futuristic community was revisited, and plans were made to reinvigorate the park with new attractions, experiences, and a reimagined layout.</p>
+        
+        <p><strong>7. Ongoing Transformation (2020s):</strong>
+           As of my last knowledge update in September 2021, the transformation of EPCOT was ongoing, with various projects in development, such as the Guardians of the Galaxy: Cosmic Rewind coaster, Remy's Ratatouille Adventure, and a redesigned entrance area.
+           The transformation aimed to focus on storytelling, cultural experiences, and the integration of Disney characters while maintaining the spirit of innovation and international diversity.</p>
+        
+        <p>EPCOT continues to evolve and adapt, blending Walt Disney's original vision of a futuristic community with the magic of a theme park that celebrates human achievement, culture, and creativity. Please note that developments and changes to EPCOT may have occurred since my last update in September 2021.</p>
+
+        </section>
+    </main>
+    
+    <footer id="rides">
+        <section id="rideTimes">
+            <header><h2>Ride Times</h2></header>
+            <div id="rideList">  
+            </div>
+        </section>
+    </footer>
+
+    <footer id="footer">
+        <p>&copy; Cat Evans 2023. All rights reserved.</p>
+    </footer>
+
+        
+
+
+    <script>
+        window.onload = async () => {
+        let list = document.getElementById('rideList');
+        let container = document.getElementById('rideTimes');
+        let rList = document.getElementById('restaurantList');
+            
+        const rData = {
+            "lands": [
+                {
+                "id": 897,
+                "name": "World Celebration",
+                "rides": [
+                    {
+                    "id": 2495,
+                    "name": "Disney and Pixar Short Film Festival",
+                    "is_open": true,
+                    "wait_time": 0,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    },
+                    {
+                    "id": 155,
+                    "name": "Journey Into Imagination With Figment",
+                    "is_open": true,
+                    "wait_time": 15,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    },
+                    {
+                    "id": 159,
+                    "name": "Spaceship Earth",
+                    "is_open": false,
+                    "wait_time": 0,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    }
+                ]
+                },
+                {
+                "id": 896,
+                "name": "World Discovery",
+                "rides": [
+                    {
+                    "id": 10916,
+                    "name": "Guardians of the Galaxy: Cosmic Rewind",
+                    "is_open": true,
+                    "wait_time": 0,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    },
+                    {
+                    "id": 158,
+                    "name": "Mission: SPACE",
+                    "is_open": false,
+                    "wait_time": 0,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    },
+                    {
+                    "id": 160,
+                    "name": "Test Track",
+                    "is_open": true,
+                    "wait_time": 40,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    },
+                    {
+                    "id": 10900,
+                    "name": "Test Track Presented by Chevrolet Single Rider",
+                    "is_open": true,
+                    "wait_time": 0,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    }
+                ]
+                },
+                {
+                "id": 898,
+                "name": "World Nature",
+                "rides": [
+                    {
+                    "id": 7323,
+                    "name": "Awesome Planet",
+                    "is_open": true,
+                    "wait_time": 0,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    },
+                    {
+                    "id": 156,
+                    "name": "Living with the Land",
+                    "is_open": true,
+                    "wait_time": 10,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    },
+                    {
+                    "id": 151,
+                    "name": "Soarin' Over California",
+                    "is_open": true,
+                    "wait_time": 15,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    },
+                    {
+                    "id": 153,
+                    "name": "The Seas with Nemo & Friends",
+                    "is_open": true,
+                    "wait_time": 20,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    },
+                    {
+                    "id": 152,
+                    "name": "Turtle Talk With Crush",
+                    "is_open": true,
+                    "wait_time": 15,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    }
+                ]
+                },
+                {
+                "id": 64,
+                "name": "World Showcase",
+                "rides": [
+                    {
+                    "id": 829,
+                    "name": "Canada Far and Wide in Circle-Vision 360",
+                    "is_open": true,
+                    "wait_time": 0,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    },
+                    {
+                    "id": 2679,
+                    "name": "Frozen Ever After",
+                    "is_open": true,
+                    "wait_time": 105,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    },
+                    {
+                    "id": 466,
+                    "name": "Gran Fiesta Tour Starring The Three Caballeros",
+                    "is_open": true,
+                    "wait_time": 15,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    },
+                    {
+                    "id": 6701,
+                    "name": "Meet Anna and Elsa at Royal Sommerhus",
+                    "is_open": false,
+                    "wait_time": 0,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    },
+                    {
+                    "id": 10914,
+                    "name": "Remy's Ratatouille Adventure",
+                    "is_open": true,
+                    "wait_time": 45,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    },
+                    {
+                    "id": 10915,
+                    "name": "Remy's Ratatouille Adventure Single Rider",
+                    "is_open": true,
+                    "wait_time": 0,
+                    "last_updated": "2023-10-02T20:00:22.000Z"
+                    }
+                ]
+                }
+            ],
+            "rides": []
+            }
+            
+        // For each of the entries in data.lands
+        for (let lands of rData.lands) {
+            // Create a div element for each land
+            let landDiv = document.createElement('div');
+            landDiv.classList.add('landDetails');
+
+            // Create an h3 element for the land title
+            let landTitle = document.createElement('h3');
+            landTitle.classList.add('landTitle');
+            landTitle.textContent = lands.name;
+            landDiv.appendChild(landTitle);
+
+            // let waitTimeToggle = document.createElement('button');
+            // waitTimeToggle.classList.add('toggle');
+            // waitTimeToggle.textContent = ('Close');
+            // landTitle.appendChild(waitTimeToggle);
+
+            // Now for the rides part
+            // For each ride in each lands object
+            for (let r of lands.rides) {
+                // Create a div element for each ride
+                let rideDiv = document.createElement('div');
+                rideDiv.classList.add('rideDetails');
+
+                // Create p elements for ride title, ride time, and ride status
+                let rideTitle = document.createElement('p');
+                rideTitle.classList.add('rideTitle');
+                rideTitle.textContent = r.name;
+
+                let rideTime = document.createElement('p');
+                let waitTime = r.wait_time;
+
+                if (r.wait_time >= 40) {
+                    rideTime.classList.add('longWait');
+                } else {
+                    rideTime.classList.add('shortWait');
+                }
+                rideTime.classList.add('waitTime');
+                rideTime.textContent = `Wait Time: ${r.wait_time} minutes`;
+
+                let isOpen = document.createElement('span');
+                let status = r.is_open;
+
+                if (r.is_open == true) {
+                    isOpen.classList.add('open');
+                } else {
+                    isOpen.classList.add('closed');
+                };
+
+                isOpen.textContent = r.is_open ? "Open" : "Closed";
+
+                // Append the ride details to the ride div
+                rideDiv.appendChild(rideTitle);
+                rideDiv.appendChild(rideTime);
+                rideDiv.appendChild(isOpen);
+
+                // Append the ride div to the land div
+                landDiv.appendChild(rideDiv);
+            }
+
+            // Append the land div to the list
+            list.appendChild(landDiv);
+        }
+        
+        const fData = [
+    {
+      "id": 192,
+      "land_id": 9,
+      "name": "La Cantina de San Angel",
+      "permalink": "la-cantina-de-san-angel",
+      "category_code": "counter_service",
+      "portion_size": "medium-large",
+      "cost_code": "inexpensive",
+      "cuisine": "Mexican",
+      "phone_number": null,
+      "entree_range": null,
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "10:30 AM to Park Close",
+      "dinner_hours": null,
+      "selection": "Tacos (beef, chicken, fried fish), empanadas, salads, chicken with Mexican rice, guacamole, churros, and margaritas",
+      "setting_atmosphere": "A popular spot for a quick meal, with 150 covered outdoor seats.\r\nWhen it’s extra busy, the back of La Hacienda de San Angel’s dining room\r\nis opened for air-conditioned seating.",
+      "other_recommendations": null,
+      "summary": "Tacos with seasoned beef, chicken, or fried fish; fried cheese empanada;\r\ngrilled chicken with Mexican rice, corn, cascabel sauce, and pickled\r\nonions; guacamole and chips; churros; margaritas. For kids, chicken tacos,\r\nempanadas, chicken tenders, or mac and cheese.",
+      "house_specialties": null,
+      "counter_quality_rating": "Good",
+      "counter_value_rating": "B",
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": null,
+      "adult_dinner_menu_url": "http://allears.net/menu/men_cant.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2011-06-16T19:24:44.000-07:00",
+      "updated_at": "2022-08-25T21:00:29.000-07:00",
+      "plan_x_coord": 226,
+      "plan_y_coord": 338,
+      "old_park_id": null,
+      "old_attraction_id": null,
+      "plan_name": "Dine at La Cantina de San Angel",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL151",
+      "short_name": "La Cantina",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": null,
+      "operator_id": 90001345,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/cantina-de-san-angel/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "cantina de san angel",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.371364",
+      "longitude": "-81.547817",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 836,
+      "land_id": 146,
+      "name": "Connections Café",
+      "permalink": "connections-cafe",
+      "category_code": "counter_service",
+      "portion_size": null,
+      "cost_code": null,
+      "cuisine": null,
+      "phone_number": null,
+      "entree_range": null,
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": null,
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": null,
+      "dinner_hours": null,
+      "selection": null,
+      "setting_atmosphere": null,
+      "other_recommendations": null,
+      "summary": "Starbucks coffee and snacks near the Creations Shop in EPCOT.",
+      "house_specialties": null,
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": null,
+      "adult_dinner_menu_url": null,
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2015-06-11T16:00:37.000-07:00",
+      "updated_at": "2022-08-25T21:00:31.000-07:00",
+      "plan_x_coord": 287,
+      "plan_y_coord": 515,
+      "old_park_id": null,
+      "old_attraction_id": null,
+      "plan_name": "Snack at Connections Café",
+      "extinct_on": null,
+      "opened_on": "2022-04-27",
+      "disney_permalink": null,
+      "code": "ORL586",
+      "short_name": "Connections Café",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": null,
+      "operator_id": 19635788,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/connections-cafe/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "connections cafe",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": null,
+      "longitude": null,
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 1283,
+      "land_id": 144,
+      "name": "Connections Eatery",
+      "permalink": "connections-eatery",
+      "category_code": "counter_service",
+      "portion_size": null,
+      "cost_code": null,
+      "cuisine": "American",
+      "phone_number": null,
+      "entree_range": null,
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": null,
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": null,
+      "dinner_hours": null,
+      "selection": "Burgers, pizza, salads",
+      "setting_atmosphere": null,
+      "other_recommendations": null,
+      "summary": "Fast-casual service eatery in World Discovery, near Guardians of the Galaxy Cosmic Rewind. Burgers and pizza are prepared in a show kitchen.",
+      "house_specialties": null,
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": null,
+      "adult_dinner_menu_url": null,
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2022-03-28T12:42:33.000-07:00",
+      "updated_at": "2023-05-31T09:10:27.000-07:00",
+      "plan_x_coord": 260,
+      "plan_y_coord": 530,
+      "old_park_id": null,
+      "old_attraction_id": null,
+      "plan_name": "Dine at Connections Eatery",
+      "extinct_on": null,
+      "opened_on": "2022-04-27",
+      "disney_permalink": null,
+      "code": "ORL903",
+      "short_name": "Connections Eatery",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": null,
+      "operator_id": 19635791,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/connections-eatery/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": 35,
+      "sort_name": "connections eatery",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": null,
+      "longitude": null,
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 1272,
+      "land_id": 9,
+      "name": "Crêpes à Emporter",
+      "permalink": "crepes-emporter",
+      "category_code": "counter_service",
+      "portion_size": null,
+      "cost_code": "inexpensive",
+      "cuisine": "French",
+      "phone_number": null,
+      "entree_range": null,
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": null,
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": null,
+      "dinner_hours": null,
+      "selection": null,
+      "setting_atmosphere": null,
+      "other_recommendations": null,
+      "summary": "Food window to get crêpes and drinks outside La Crêperie de Paris, near Remy's Ratatouille Adventure.",
+      "house_specialties": null,
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": null,
+      "adult_dinner_menu_url": null,
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2021-09-03T18:37:40.000-07:00",
+      "updated_at": "2021-10-01T09:21:20.000-07:00",
+      "plan_x_coord": 537,
+      "plan_y_coord": 160,
+      "old_park_id": null,
+      "old_attraction_id": null,
+      "plan_name": null,
+      "extinct_on": null,
+      "opened_on": "2021-10-01",
+      "disney_permalink": null,
+      "code": "ORL892",
+      "short_name": "Crêpes à Emporter",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Back of France Pavilion",
+      "operator_id": null,
+      "operator_url": null,
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": 53,
+      "sort_name": "crepes emporter",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": null,
+      "longitude": null,
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 18,
+      "land_id": 9,
+      "name": "Les Halles Boulangerie-Patisserie",
+      "permalink": "boulangerie-patisserie-les-halles",
+      "category_code": "counter_service",
+      "portion_size": "Small-Medium",
+      "cost_code": "inexpensive",
+      "cuisine": "French",
+      "phone_number": null,
+      "entree_range": "Lunch and Dinner: Adult $8-11",
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "10:30 AM to Park Close",
+      "dinner_hours": null,
+      "selection": "Salads, sandwiches (ham and cheese, Brie, cranberry, and apple), cheese plates, quiches, soups, delicate pastries",
+      "setting_atmosphere": null,
+      "other_recommendations": null,
+      "summary": "Les Halles is the highest-rated counter-service restaurant in EPCOT\r\nand one of the best in the World. Breads and pastries are made on-site. For\r\nan authentic Parisian experience, grab a half-baguette (ask for extra butter)\r\nand eat it while you walk around France. Usually crowded all day.",
+      "house_specialties": "The beautiful deli–bakery case is stocked with goodies such as\r\nsandwiches (ham and cheese; Brie, cranberry, and apple), importedcheese\r\nplates, quiches, soups, and delicate pastries.",
+      "counter_quality_rating": "Good",
+      "counter_value_rating": "A",
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/men_bps.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/men_bps.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:57.000-07:00",
+      "updated_at": "2023-04-20T21:09:18.000-07:00",
+      "plan_x_coord": 500,
+      "plan_y_coord": 175,
+      "old_park_id": 2,
+      "old_attraction_id": 45,
+      "plan_name": "Dine at Les Halles Boulangerie & Pâtisserie",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL018",
+      "short_name": "Les Halles",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "France Pavilion",
+      "operator_id": 90001328,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/les-halles-boulangerie-patisserie/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "halles boulangerie patisserie",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.36861",
+      "longitude": "-81.552905",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 117,
+      "land_id": 9,
+      "name": "Katsura Grill",
+      "permalink": "katsura-grill",
+      "category_code": "counter_service",
+      "portion_size": "Small-Medium",
+      "cost_code": "expensive",
+      "cuisine": "Japanese",
+      "phone_number": null,
+      "entree_range": "Lunch and Dinner: Adult $13",
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "10:30 AM to Park Close",
+      "dinner_hours": null,
+      "selection": "Sushi, udon noodle bowls, teriyaki bowls, chicken or beef curry, green-tea cheesecake. Beer, sake, and plum wine.",
+      "setting_atmosphere": "Sounds of the babbling waterfall and koi pond gently welcome guests as they approach the outdoor dining area. There are clusters of tables and chairs, some near the small waterfall, and some across the bridge under the shade of beautiful, blossoming trees. Generally there is plenty of shade in either area. Views of the garden, the Japan pavilion, and the World Showcase promenade and lagoon can be enjoyed here.",
+      "other_recommendations": null,
+      "summary": "Possibly the loveliest spot to escape the Epcot crowd and have a quick meal outside.",
+      "house_specialties": "Basic sushi; udon noodle bowls (vegetarian or shrimp tempura);\r\npork ramen; chicken, beef, or shrimp teriyaki; chicken curry; edamame;\r\nmiso soup; green tea cheesecake; teriyaki kids’ plate; Kirin beer, sake, and\r\nplum wine.",
+      "counter_quality_rating": "Good",
+      "counter_value_rating": "B",
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": null,
+      "adult_dinner_menu_url": "http://allears.net/menu/menu_katsura.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:59.000-07:00",
+      "updated_at": "2022-08-25T21:00:29.000-07:00",
+      "plan_x_coord": 359,
+      "plan_y_coord": 103,
+      "old_park_id": 2,
+      "old_attraction_id": 57,
+      "plan_name": "Dine at Katsura Grill",
+      "extinct_on": null,
+      "opened_on": "2011-12-07",
+      "disney_permalink": null,
+      "code": "ORL117",
+      "short_name": "Katsura Grill",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Japan Pavilion",
+      "operator_id": 16300748,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/katsura-grill/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "katsura grill",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.36755787",
+      "longitude": "-81.55043742",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 50,
+      "land_id": 9,
+      "name": "Kringla Bakeri og Kafe",
+      "permalink": "kringla-bakeri-og-kafe",
+      "category_code": "counter_service",
+      "portion_size": "Small-Medium",
+      "cost_code": "inexpensive",
+      "cuisine": "Norwegian",
+      "phone_number": null,
+      "entree_range": null,
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "10:30 AM to Park Close",
+      "dinner_hours": null,
+      "selection": "Norwegian pastries/cakes, rice cream, sandwiches, lattes and imported beers and wines",
+      "setting_atmosphere": null,
+      "other_recommendations": null,
+      "summary": "Limited menu and hours. The School Bread (a sweet roll filled with\r\ncustard and dipped in coconut) is popular. Shaded outdoor seating.",
+      "house_specialties": "Norwegian pastries and desserts, iced coffee, and imported beers\r\nand wines.",
+      "counter_quality_rating": "Good-Excellent",
+      "counter_value_rating": "B",
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/menu_k.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/menu_k.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:57.000-07:00",
+      "updated_at": "2022-08-25T21:00:28.000-07:00",
+      "plan_x_coord": 159,
+      "plan_y_coord": 304,
+      "old_park_id": 2,
+      "old_attraction_id": 48,
+      "plan_name": "Dine at Kringla Bakeri og Kafe",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL050",
+      "short_name": "Kringla Bakeri og Kafe",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Norway Pavilion",
+      "operator_id": 90001794,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/kringla-bakeri-og-kafe/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "kringla bakeri og kafe",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.370688",
+      "longitude": "-81.546872",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 56,
+      "land_id": 9,
+      "name": "Lotus Blossom Café",
+      "permalink": "lotus-blossom-cafe",
+      "category_code": "counter_service",
+      "portion_size": "Medium",
+      "cost_code": "inexpensive",
+      "cuisine": "Chinese",
+      "phone_number": null,
+      "entree_range": "Lunch and Dinner: Adult $15",
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "10:30 AM to Park Close",
+      "dinner_hours": null,
+      "selection": "Egg rolls, pot stickers, curry, sesame chicken salad, fried rice, orange chicken, soup,  lychee ice cream, plum wine",
+      "setting_atmosphere": null,
+      "other_recommendations": null,
+      "summary": "The menu rarely changes, and the food remains a snooze.",
+      "house_specialties": "Pork and vegetable egg rolls, pot stickers, orange chicken, chicken\r\nfried rice, caramel-ginger or lychee ice cream, plum\r\nwine.",
+      "counter_quality_rating": "Fair",
+      "counter_value_rating": "C",
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/men_lbc.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/men_lbc.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": "http://allears.net/menu/men_lbc.htm",
+      "child_dinner_menu_url": "http://allears.net/menu/men_lbc.htm",
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:57.000-07:00",
+      "updated_at": "2023-05-25T16:19:49.000-07:00",
+      "plan_x_coord": 142,
+      "plan_y_coord": 269,
+      "old_park_id": 2,
+      "old_attraction_id": 50,
+      "plan_name": "Dine at Lotus Blossum Cafe",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL056",
+      "short_name": "Lotus Blossom",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "China Pavilion",
+      "operator_id": 90001829,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/lotus-blossom-cafe/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "lotus blossom caf",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.370063",
+      "longitude": "-81.546473",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 1235,
+      "land_id": 144,
+      "name": "The Odyssey",
+      "permalink": "odyssey",
+      "category_code": "counter_service",
+      "portion_size": null,
+      "cost_code": "inexpensive",
+      "cuisine": "American",
+      "phone_number": null,
+      "entree_range": "All Day: Adult $9-10",
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": null,
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": null,
+      "dinner_hours": null,
+      "selection": "Occasionally offers wine, beer, cocktails, and snacks",
+      "setting_atmosphere": null,
+      "other_recommendations": null,
+      "summary": "A former restaurant and more recent festival center, The Odyssey is a classic EPCOT building that is serving as Quick Service dining during the long-term remodel of the park.",
+      "house_specialties": null,
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": null,
+      "adult_dinner_menu_url": null,
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2020-04-01T06:41:14.000-07:00",
+      "updated_at": "2021-10-01T09:23:42.000-07:00",
+      "plan_x_coord": 235,
+      "plan_y_coord": 396,
+      "old_park_id": null,
+      "old_attraction_id": null,
+      "plan_name": null,
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL876",
+      "short_name": "The Odyssey",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": null,
+      "operator_id": null,
+      "operator_url": null,
+      "operator_type": null,
+      "walking_time_proxy_id": 307,
+      "sort_name": "odyssey",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.37214799",
+      "longitude": "-81.54795308",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 74,
+      "land_id": 9,
+      "name": "Refreshment Outpost",
+      "permalink": "refreshment-outpost-coolpost",
+      "category_code": "counter_service",
+      "portion_size": "Small",
+      "cost_code": "inexpensive",
+      "cuisine": "American",
+      "phone_number": null,
+      "entree_range": null,
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "10:30 AM to Park Close",
+      "dinner_hours": null,
+      "selection": "Hot dogs, soft-serve in a waffle cone, slushes, coffee or tea, draft Safari Amber beer",
+      "setting_atmosphere": null,
+      "other_recommendations": null,
+      "summary": "The hot dogs here aren’t bad at all, but there are plenty of better\r\ndining options within a few minutes’ walk.",
+      "house_specialties": "All-beef hot dogs, slushies, sodas, draft Safari Amber and other\r\nbeers.",
+      "counter_quality_rating": "Good",
+      "counter_value_rating": "B-",
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/menu_rp.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/menu_rp.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:58.000-07:00",
+      "updated_at": "2022-08-25T21:00:28.000-07:00",
+      "plan_x_coord": 138,
+      "plan_y_coord": 195,
+      "old_park_id": 2,
+      "old_attraction_id": 77,
+      "plan_name": "Dine at Refreshment Outpost",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL074",
+      "short_name": "Refreshment Outpost",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "between Germany and China",
+      "operator_id": 90001409,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/africa-outpost/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "refreshment outpost",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.369237",
+      "longitude": "-81.546334",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 75,
+      "land_id": 9,
+      "name": "Refreshment Port",
+      "permalink": "refreshment-port",
+      "category_code": "counter_service",
+      "portion_size": "Medium",
+      "cost_code": "inexpensive",
+      "cuisine": "American",
+      "phone_number": null,
+      "entree_range": null,
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "10:30 AM to Park Close",
+      "dinner_hours": null,
+      "selection": "Changes frequently. Currently poutine, lobster chips, ice cream, and some inventive cocktails.",
+      "setting_atmosphere": null,
+      "other_recommendations": null,
+      "summary": "From croissant doughnuts to pork-belly Bloody Marys, you never\r\nknow what you’ll find here—but chances are that it will be good.",
+      "house_specialties": "Poutine, chicken nuggets, unusual alcoholic drinks and beer.",
+      "counter_quality_rating": "Good",
+      "counter_value_rating": "B-",
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/men_rp.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/men_rp.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:58.000-07:00",
+      "updated_at": "2022-08-25T21:00:28.000-07:00",
+      "plan_x_coord": 413,
+      "plan_y_coord": 335,
+      "old_park_id": 2,
+      "old_attraction_id": 52,
+      "plan_name": "Dine at Refreshment Port",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL075",
+      "short_name": "Refreshment Port",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Between Canada and World Showcase Plaza",
+      "operator_id": 90002672,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/refreshment-port/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "refreshment port",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.371781",
+      "longitude": "-81.550562",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 1201,
+      "land_id": 9,
+      "name": "Regal Eagle Smokehouse: Craft Drafts & Barbecue",
+      "permalink": "regal-eagle-smokehouse-craft-drafts-barbecue",
+      "category_code": "counter_service",
+      "portion_size": "Large",
+      "cost_code": "inexpensive",
+      "cuisine": "American",
+      "phone_number": null,
+      "entree_range": "Lunch and Dinner: Adult $13",
+      "when_to_go": "Lunch or dinner",
+      "parking": "Epcot lot",
+      "bar": "Beer and wine",
+      "wine_list": "Three (3) domestic wines",
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "11:00 AM to Park Close",
+      "dinner_hours": "11:00 AM to Park Close",
+      "selection": "Barbecue and beer",
+      "setting_atmosphere": "An enclosed, colonial-style patio serves as the main dining area here, with outdoor seating around a show-kitchen smoker when the weather is nice.  Rolls of paper towels are set on every table, as required by barbecue law.",
+      "other_recommendations": null,
+      "summary": "Regal Eagle\r\nserves passable barbecue in hearty portions, with the Texas brisket (on\r\ngarlic toast) being our favorite. If you’re craving more, The Polite Pig at\r\nDisney Springs sets the standard in Walt Disney World.",
+      "house_specialties": "Regional barbecue meat specialties, including Memphis smoked ribs,\r\nKansas City chicken, North Carolina chopped pork, and Texas brisket, plus burgers,\r\nsalads, and vegetarian options. Usually serves at least four different beers\r\nfrom around the country, plus hard ciders, wines, and specialty cocktails.",
+      "counter_quality_rating": "Good",
+      "counter_value_rating": "B",
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": 2.5,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": null,
+      "adult_dinner_menu_url": null,
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2019-06-27T11:03:38.000-07:00",
+      "updated_at": "2023-06-01T11:38:30.000-07:00",
+      "plan_x_coord": 286,
+      "plan_y_coord": 103,
+      "old_park_id": null,
+      "old_attraction_id": null,
+      "plan_name": "Dine at Regal Eagle Smokehouse: Craft Drafts & Barbecue",
+      "extinct_on": null,
+      "opened_on": "2020-02-09",
+      "disney_permalink": null,
+      "code": "ORL845",
+      "short_name": "Regal Eagle",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "American Adventure Pavilion",
+      "operator_id": 90001809,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/regal-eagle-smokehouse/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": 54,
+      "sort_name": "regal eagle smokehouse craft drafts barbecue",
+      "mobile_ordering": true,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.367579",
+      "longitude": "-81.549003",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 88,
+      "land_id": 9,
+      "name": "Sommerfest",
+      "permalink": "sommerfest",
+      "category_code": "counter_service",
+      "portion_size": "Medium",
+      "cost_code": "inexpensive",
+      "cuisine": "German",
+      "phone_number": null,
+      "entree_range": "Lunch and Dinner: Adult $11",
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "10:30 AM to Park Close",
+      "dinner_hours": null,
+      "selection": "Bratwurst, frankfurter, sauerkraut, nudelgratin, cold potato salad, apple strudel, Black Forest cake, German wine, beer",
+      "setting_atmosphere": null,
+      "other_recommendations": null,
+      "summary": "Tables are set up in the courtyard. Much of the food looks better\r\nthan it tastes.",
+      "house_specialties": "Bratwurst, jumbo pretzel, cold beer.",
+      "counter_quality_rating": "Fair",
+      "counter_value_rating": "C",
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/men_gerc.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/men_gerc.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:58.000-07:00",
+      "updated_at": "2022-08-25T21:00:28.000-07:00",
+      "plan_x_coord": 170,
+      "plan_y_coord": 136,
+      "old_park_id": 2,
+      "old_attraction_id": 54,
+      "plan_name": "Dine at Sommerfest",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL088",
+      "short_name": "Sommerfest",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Germany Pavilion",
+      "operator_id": 90002154,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/sommerfest/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "sommerfest",
+      "mobile_ordering": true,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.368123",
+      "longitude": "-81.546902",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 92,
+      "land_id": 145,
+      "name": "Sunshine Seasons",
+      "permalink": "sunshine-seasons",
+      "category_code": "counter_service",
+      "portion_size": "Medium",
+      "cost_code": "inexpensive",
+      "cuisine": "American",
+      "phone_number": null,
+      "entree_range": null,
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "10:30 AM to Park Close",
+      "dinner_hours": null,
+      "selection": "Rotisserie chicken, pork chop, veggie flatbread, fish tacos, and turkey on ciabatta, noodle dishes, soup, salad",
+      "setting_atmosphere": null,
+      "other_recommendations": null,
+      "summary": "A place for a quick meal, with enough variety\r\nfor everyone in the family.",
+      "house_specialties": "Sunshine Seasons is set up like a food court you would find in one of Disney's moderate resorts. During lunch up to three different stations serve hot meals, usually wood-fired grills and rotisseries, with\r\nrotisserie chicken and wood-grilled fish with seasonal vegetables; (2)\r\nsandwiches; and (3)soup-and-salad. During slower times of the day there's grab-and-go food.",
+      "counter_quality_rating": "Excellent",
+      "counter_value_rating": "A",
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/men_ssff.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/men_ssff.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:58.000-07:00",
+      "updated_at": "2023-08-03T20:09:32.000-07:00",
+      "plan_x_coord": 446,
+      "plan_y_coord": 496,
+      "old_park_id": 2,
+      "old_attraction_id": 55,
+      "plan_name": "Dine at Sunshine Seasons Food Fair",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL092",
+      "short_name": "Sunshine Seasons",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "the Land Pavilion",
+      "operator_id": 90002190,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/sunshine-seasons/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "sunshine seasons",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.373971",
+      "longitude": "-81.551963",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 94,
+      "land_id": 9,
+      "name": "Tangierine Café: Flavors of the Medina",
+      "permalink": "tangierine-cafe",
+      "category_code": "counter_service",
+      "portion_size": "Medium",
+      "cost_code": "inexpensive",
+      "cuisine": "Moroccan",
+      "phone_number": null,
+      "entree_range": null,
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "10:30 AM to Park Close",
+      "dinner_hours": null,
+      "selection": "Grilled kebabs, falafel pita",
+      "setting_atmosphere": "The indoor area resembles a very small cafeteria, but the outdoor seating is in a quaint, shaded area that has a view of the promenade and is great for people watching.",
+      "other_recommendations": null,
+      "summary": "Once one of the highest-rated quick-service restaurants, Tangierine Cafe will be largely unrecognizable compared with its pre-pandemic form. The location, operating still under the Tangierine Cafe name, is now a festival booth serving a limited selection of foods according to the festival theme. Think kebabs, bread, and some sort of dessert with limited drink selections. Lines are rarely long, and the food is good but often overlooked during the perpetual EPCOT festival seasons.",
+      "house_specialties": null,
+      "counter_quality_rating": "Good",
+      "counter_value_rating": "B",
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/men_tg.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/men_tg.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": "http://allears.net/menu/men_tg.htm",
+      "child_dinner_menu_url": "http://allears.net/menu/men_tg.htm",
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:58.000-07:00",
+      "updated_at": "2022-08-25T21:00:29.000-07:00",
+      "plan_x_coord": 438,
+      "plan_y_coord": 151,
+      "old_park_id": 2,
+      "old_attraction_id": 56,
+      "plan_name": "Dine at Tangierine Cafe",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL094",
+      "short_name": "Tangierine Café",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": null,
+      "operator_id": 90002205,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/tangierine-cafe/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "tangierine caf flavors of the medina",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.368301",
+      "longitude": "-81.551841",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 118,
+      "land_id": 9,
+      "name": "Yorkshire County Fish Shop",
+      "permalink": "yorkshire-county-fish-shop",
+      "category_code": "counter_service",
+      "portion_size": "Medium",
+      "cost_code": "inexpensive",
+      "cuisine": "British",
+      "phone_number": null,
+      "entree_range": "Lunch and Dinner: Adult $13",
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "10:30 AM to Park Close",
+      "dinner_hours": null,
+      "selection": "Fish and chips, Victoria sponge cake, Bass Pale Ale draft, and Harp Lager",
+      "setting_atmosphere": null,
+      "other_recommendations": null,
+      "summary": "There’s usually a line for the crisp, hot fish-and-chips at this convenient\r\nfast-food window attached to the Rose & Crown Dining Room. A tasty chicken-and-mushroom pie might\r\nbe served during cooler months. Outdoor seating overlooks the lagoon.",
+      "house_specialties": "Fish-and-chips, Bass Pale Ale draft, and Harp Lager.",
+      "counter_quality_rating": "Good",
+      "counter_value_rating": "B+",
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/menu_hr.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/menu_hr.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:59.000-07:00",
+      "updated_at": "2023-06-01T11:28:46.000-07:00",
+      "plan_x_coord": 430,
+      "plan_y_coord": 264,
+      "old_park_id": 2,
+      "old_attraction_id": 71,
+      "plan_name": "Dine at Yorkshire County Fish Shop",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL118",
+      "short_name": "Yorkshire Fish",
+      "accepts_reservations": false,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "UK Pavilion",
+      "operator_id": 90002416,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/yorkshire-county-fish-shop/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "yorkshire county fish shop",
+      "mobile_ordering": true,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.370281",
+      "longitude": "-81.551772",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+
+    {
+      "id": 5,
+      "land_id": 9,
+      "name": "Akershus Royal Banquet Hall",
+      "permalink": "akershus-royal-banquet-hall",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "expensive",
+      "cuisine": "Norwegian",
+      "phone_number": "407-939-3463",
+      "entree_range": "Breakfast: Adult $53, Child $34. Lunch: Adult $63, Child $41. Dinner: Adult $63, Child $41",
+      "when_to_go": "Anytime",
+      "parking": "Epcot Lot",
+      "bar": "Full service",
+      "wine_list": "Good",
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": "8:00 AM to 11:30 AM",
+      "lunch_hours": "11:45 AM to 3:30 PM",
+      "dinner_hours": "4:45 PM to 8:45 PM",
+      "selection": "Koldtbord (meats, cheeses, seafood, and salads), roasted chicken, salmon, goat cheese ravioli, eef-and-pork dumplings",
+      "setting_atmosphere": "The inside of Akershus looks like every child’s\r\nvision of a fairy-tale castle: high ceilings, stone archways, sumptuous purple\r\ncarpets, regal banners flying. What’s mildly surprising, given the attention\r\nto authenticity elsewhere in EPCOT, is that it doesn’t look more like\r\nthe real Akershus Castle in Oslo, which has plain wooden floors; flat, simple ceilings; and painted brick arches. Disney’s version is almost as ungodly\r\nexpensive as the real thing, though, and you’re apt to hear norsk spoken\r\nby your servers. Close enough for us. The saving grace is that most visitors\r\ndon’t realize that it is in fact a restaurant and walk right by.",
+      "other_recommendations": "Beer on tap, wine, aquavit cocktails.",
+      "summary": "Akershus has never been on our “you’ve just\r\ngotta try this” list, but if you have kids who love the Disney princesses, they\r\nwon’t be disappointed. There was a time when the Scandinavian-style buffet\r\nwas noteworthy, but these days all of the attention in the kitchen goes to feeding\r\nfamilies fast. As for the prices? You’re paying for that princess face time.",
+      "house_specialties": null,
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 2.0,
+      "table_value_rating": 4.0,
+      "overall_rating": 2.0,
+      "service_rating": 4.0,
+      "friendliness_rating": 4.0,
+      "adult_breakfast_menu_url": "http://allears.net/menu/menu_psb.htm",
+      "adult_lunch_menu_url": "http://allears.net/menu/menu_norl.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/menu_nor.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": "http://allears.net/menu/menu_norl.htm",
+      "child_dinner_menu_url": "http://allears.net/menu/menu_nor.htm",
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:57.000-07:00",
+      "updated_at": "2023-10-02T21:07:52.000-07:00",
+      "plan_x_coord": 164,
+      "plan_y_coord": 283,
+      "old_park_id": 2,
+      "old_attraction_id": 65,
+      "plan_name": "Dine at Akershus Royal Banquet Hall",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL005",
+      "short_name": "Akershus",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Norway Pavilion",
+      "operator_id": 90002066,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/akershus-royal-banquet-hall/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "akershus royal banquet hall",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.370588",
+      "longitude": "-81.546728",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 11,
+      "land_id": 9,
+      "name": "Biergarten Restaurant",
+      "permalink": "biergarten",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "expensive",
+      "cuisine": "German",
+      "phone_number": "407-939-3463",
+      "entree_range": "Lunch: Adult $49, Child $27. Dinner: Adult $49, Child $27",
+      "when_to_go": "Lunch or Dinner",
+      "parking": "Epcot lot",
+      "bar": "Full Service",
+      "wine_list": "German",
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "12:00 PM to 3:00 PM",
+      "dinner_hours": "4:00 PM to Park Close",
+      "selection": "German roasted meats, various salads (potato, beet, and lettuce), desserts",
+      "setting_atmosphere": "Biergarten is a hefty German restaurant set\r\ninside a nighttime Teutonic town square. You’re seated at long tables lined\r\nup in rows emanating like the moon’s rays from a central dance floor and\r\nstage. A lederhosen-clad oompah band plays and encourages diners to\r\nsing along. Tables are not shared between families, and there’s plenty of\r\nspace between occupied tables.",
+      "other_recommendations": null,
+      "summary": "The buffet is stacked with an astonishing amount of food of good quality. There are plenty of places in Walt Disney World where you could pay more for less. If you leave here hungry, ask your doctor about tapeworms. The lively 25-minute show (one every hour) and noisy dining room are part of the fun, especially for families. And kids seem to love the place.",
+      "house_specialties": "Potato salad, traditional German sausages, and homemade\r\nspaetzle.",
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 2.0,
+      "table_value_rating": 4.0,
+      "overall_rating": 2.0,
+      "service_rating": 4.0,
+      "friendliness_rating": 4.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/men_ger.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/men_ger.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:57.000-07:00",
+      "updated_at": "2023-10-02T21:07:53.000-07:00",
+      "plan_x_coord": 165,
+      "plan_y_coord": 138,
+      "old_park_id": 2,
+      "old_attraction_id": 60,
+      "plan_name": "Dine at Biergarten",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL011",
+      "short_name": "Biergarten",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Germany Pavilion",
+      "operator_id": 90001292,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/biergarten-restaurant/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "biergarten restaurant",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.375321",
+      "longitude": "-81.53357",
+      "summary_at_top": false,
+      "themeparks_id": "c9e1d1f6-021f-43f2-a14b-3e67f65adbc4"
+    },
+    {
+      "id": 52,
+      "land_id": 9,
+      "name": "Le Cellier Steakhouse",
+      "permalink": "le-cellier-steakhouse",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "expensive",
+      "cuisine": "Steak",
+      "phone_number": "407-939-3463",
+      "entree_range": "Lunch: Adult $62. Dinner: Adult $62",
+      "when_to_go": "Before 6 p.m.",
+      "parking": "Epcot lot",
+      "bar": "Full bar",
+      "wine_list": "Canadian wines are featured",
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "11:30 AM to 3:00 PM",
+      "dinner_hours": "4:00 PM to 8:50 PM",
+      "selection": "Steak, soup, dumplings, mac and cheese and other steakhouse sides, poutine fries",
+      "setting_atmosphere": "Walk past the Canada Pavilion’s pretty gardens\r\ninto this small, darkened dining room, intended to evoke the look and\r\nfeel of a wine cellar. Given the escalated prices, it doesn’t feel upscale, with\r\nheavy wooden tables and no linens, but the crowd doesn’t seem to mind—\r\nthe steaks make up for the ambience. Service is “cheerful Canadian,”\r\nmeaning servers will apologize to <em>you</em> if you spill something on <em>them</em>.",
+      "other_recommendations": "For sides, share the five-cheese mac-and-cheese,\r\nthe loaded mashed potatoes, or the poutine. For dessert, the warm pecan–\r\nbrown butter tart. Excellent wine selection.",
+      "summary": "Le Cellier is expensive, but the steaks are perfectly seasoned\r\nand cooked, with a beautiful char. Service is unrushed—it’s possible\r\nfor a full dinner to take 2 hours, so plan accordingly. The menu is the\r\nsame at lunch and dinner.",
+      "house_specialties": "Filet mignon; Canadian Cheddar soup.",
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 3.5,
+      "table_value_rating": 3.0,
+      "overall_rating": 3.5,
+      "service_rating": 4.0,
+      "friendliness_rating": 5.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/menu_lcl.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/menu_lcd.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": "http://allears.net/menu/menu_lck.htm",
+      "child_dinner_menu_url": "http://allears.net/menu/menu_lck.htm",
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:57.000-07:00",
+      "updated_at": "2023-10-02T21:07:54.000-07:00",
+      "plan_x_coord": 420,
+      "plan_y_coord": 354,
+      "old_park_id": 2,
+      "old_attraction_id": 61,
+      "plan_name": "Dine at Le Cellier Steakhouse",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL052",
+      "short_name": "Le Cellier",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Canada Pavilion",
+      "operator_id": 90001798,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/le-cellier-steakhouse/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "cellier steakhouse",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.371657",
+      "longitude": "-81.551512",
+      "summary_at_top": false,
+      "themeparks_id": "3206e3a6-cbc3-4960-9700-163764bc47d6"
+    },
+    {
+      "id": 53,
+      "land_id": 9,
+      "name": "Chefs de France",
+      "permalink": "les-chefs-de-france",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "expensive",
+      "cuisine": "French",
+      "phone_number": "407-939-3463",
+      "entree_range": "Lunch: Adult $27-66. Dinner: Adult $27-66",
+      "when_to_go": "Anytime",
+      "parking": "Epcot lot",
+      "bar": "Beer",
+      "wine_list": "Very good",
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "12:00 PM to 3:00 PM",
+      "dinner_hours": "5:00 PM to 9:00 PM",
+      "selection": "Baked goat cheese salad, boeuf bourguignon linguine, creme brulee",
+      "setting_atmosphere": "It’s like stepping into a busy bistro. The smells\r\nare delicious, with baguettes from the on-site bakery on every table. White\r\ncloth napkins and padded banquettes accentuate the classic bistro decor of\r\nthe main dining room, where window tables make for fun people-watching\r\non the World Showcase Promenade.",
+      "other_recommendations": "Ask your server for the vegetarian options.\r\n",
+      "summary": "The charcuterie\r\nplate isn’t as good as the ones at Via Napoli or Le Cellier. Stick to\r\nthe French onion soup and Boeuf Bourguignon.",
+      "house_specialties": "Dishes inspired by the three French chefs for whom\r\nthe restaurant is named: Paul Bocuse, Gaston Lenôtre, and Roger Vergé. For the classic French experience, try the prix fixe menu with French onion\r\nsoup topped with Gruyère for your appetizer.",
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 3.0,
+      "table_value_rating": 3.0,
+      "overall_rating": 3.0,
+      "service_rating": 5.0,
+      "friendliness_rating": 5.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/menu_cdf.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/men_cdfd.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": "http://allears.net/menu/men_cdfk.htm",
+      "child_dinner_menu_url": "http://allears.net/menu/men_cdfk.htm",
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:57.000-07:00",
+      "updated_at": "2023-10-02T21:07:54.000-07:00",
+      "plan_x_coord": 477,
+      "plan_y_coord": 185,
+      "old_park_id": 2,
+      "old_attraction_id": 63,
+      "plan_name": "Dine at Chefs de France",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL053",
+      "short_name": "Chefs de France",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": null,
+      "operator_id": 90001373,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/chefs-de-france/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "chefs de france",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.368954",
+      "longitude": "-81.552639",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 30,
+      "land_id": 145,
+      "name": "Coral Reef Restaurant",
+      "permalink": "coral-reef-restaurant",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "expensive",
+      "cuisine": "Seafood",
+      "phone_number": "407-939-3463",
+      "entree_range": "Lunch: Adult $29-36. Dinner: Adult $29-36",
+      "when_to_go": "Lunch",
+      "parking": "Epcot lot",
+      "bar": "Full service",
+      "wine_list": "Good",
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "11:30 AM to 3:20 PM",
+      "dinner_hours": "4:00 PM to Park Close",
+      "selection": "Lobster seafood boil, seared mahi mahi, grilled rib-eye",
+      "setting_atmosphere": "Though the decor could use a face-lift, you\r\ncan’t beat the view in this darkened dining room, which faces one of the\r\nworld’s largest saltwater aquariums; tiered seating gives everyone a pretty\r\ngood view of the multitude of fishes (and sometimes Mickey in a scuba\r\nsuit). The ethereal entryway gives the impression that you’re going under\r\nthe sea; special light fixtures throw ripple patterns on the ceiling.",
+      "other_recommendations": null,
+      "summary": "Not the best restaurant in EPCOT by a long\r\nshot, but Coral Reef is a great escape from the Florida sun. Grab a souvenir\r\nfish guide and check out the more than 2,000 sea creatures that call this\r\nplace home—but that are probably not on the menu.",
+      "house_specialties": "Lobster bisque, grilled rib eye.\r\nFor kids, grilled fish, steak, chicken, or shrimp.",
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 2.0,
+      "table_value_rating": 2.0,
+      "overall_rating": 2.5,
+      "service_rating": 4.0,
+      "friendliness_rating": 4.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/men_crl.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/menu_cr.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": "http://allears.net/menu/menu_crk.htm",
+      "child_dinner_menu_url": "http://allears.net/menu/menu_crk.htm",
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:57.000-07:00",
+      "updated_at": "2023-10-02T21:07:53.000-07:00",
+      "plan_x_coord": 364,
+      "plan_y_coord": 569,
+      "old_park_id": 2,
+      "old_attraction_id": 58,
+      "plan_name": "Dine at Coral Reef Restaurant",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL030",
+      "short_name": "Coral Reef",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "inside the Seas Pavilion, to the right of the Seas with Nemo and Friends attraction entrance.",
+      "operator_id": 90001416,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/coral-reef-restaurant/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "coral reef restaurant",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.375096",
+      "longitude": "-81.550458",
+      "summary_at_top": false,
+      "themeparks_id": "38892221-f69c-4913-97c9-7473c88854fa"
+    },
+    {
+      "id": 1216,
+      "land_id": 9,
+      "name": "La Crêperie de Paris",
+      "permalink": "creperie-paris",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "moderate",
+      "cuisine": "French",
+      "phone_number": null,
+      "entree_range": null,
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": null,
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "10:30 AM to Park Close",
+      "dinner_hours": null,
+      "selection": "Crepes and other French favorites",
+      "setting_atmosphere": null,
+      "other_recommendations": "Note that <a href=\"/epcot/dining/crepes-emporter\">Crêpes à Emporter</a> offers to-go crêpes and drinks from a window outside this restaurant.",
+      "summary": "Celebrity chef Jérôme Bocuse offers sweet and savory crêpe options in this new part of the France Pavilion, nearRemy's Ratatouille Adventure.",
+      "house_specialties": null,
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": null,
+      "adult_dinner_menu_url": null,
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2019-08-27T05:11:37.000-07:00",
+      "updated_at": "2022-08-25T21:00:32.000-07:00",
+      "plan_x_coord": 538,
+      "plan_y_coord": 158,
+      "old_park_id": null,
+      "old_attraction_id": null,
+      "plan_name": null,
+      "extinct_on": null,
+      "opened_on": "2021-10-01",
+      "disney_permalink": null,
+      "code": "ORL859",
+      "short_name": "Crêperie de Paris",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "France Pavilion",
+      "operator_id": 19511274,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/creperie-de-paris/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": 361,
+      "sort_name": "creperie de paris",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.36872341",
+      "longitude": "-81.55340939",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 98,
+      "land_id": 145,
+      "name": "Garden Grill Restaurant",
+      "permalink": "garden-grill-restaurant",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "expensive",
+      "cuisine": "American",
+      "phone_number": "407-939-3463",
+      "entree_range": "Breakfast: Adult $42, Child $27. Lunch: Adult $55, Child $36. Dinner: Adult $55, Child $36",
+      "when_to_go": "Lunch or Dinner",
+      "parking": "Epcot lot",
+      "bar": "Wine, beer and some mixed drinks",
+      "wine_list": "Fair",
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "11:30 AM to 3:00 PM",
+      "dinner_hours": "4:30 PM to 8:00 PM",
+      "selection": "Grilled beef, turkey breast with stuffing and gravy, and fish of the day. Seasonal cobbler with vanilla whipped cream.",
+      "setting_atmosphere": "<p>With the popular Soarin’ Around the World\r\nattraction nearby, the all-you-can-eat Garden Grill stays busy, even though\r\nthe concept and the dining room have grown rather dated. Even so, it’s a\r\nclassic: The floor revolves slowly as you peer down into the unseen side\r\nof scenes from Living with the Land, the Land Pavilion’s ride-through\r\nattraction. At about the time you finish a meal, you’ve\r\nrevolved once, past scenes of a desert, a rainforest, and a farm—an otherwise\r\nhidden view of inside the farmhouse. The constant crowing of a\r\n“rooster” and dog barks are questionable\r\nhighlights.</p>\r\n\r\n<p>Much more exciting for kids are the Disney characters—Mickey, Chip ’n’\r\nDale, Pluto, and others make stops along the inner wall of the circular restaurant,\r\nfar enough away to be safe but close enough for good photos.</p>",
+      "other_recommendations": "The view, Character dining. Complimentary nonalcoholic beverages included with meals.\r\n",
+      "summary": "The food quality is, in our estimation, just OK.\r\nNevertheless, readers really seem to like Garden Grill; we think the retro-\r\nDisney setting and the characters are at least as much of a draw as the\r\nfood. If you can’t get an Advance Reservation for one of the other character\r\nmeals, this place is worth checking out.",
+      "house_specialties": "Grilled beef, chimichurri, turkey breast with stuffing and\r\ngravy, BBQ ribs, mashed potatoes, veggies, and salads made with ingredients\r\nfrom The Land’s greenhouses. Plant-based options available on request.",
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 3.0,
+      "table_value_rating": 3.0,
+      "overall_rating": 3.0,
+      "service_rating": 4.0,
+      "friendliness_rating": 5.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": null,
+      "adult_dinner_menu_url": null,
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:58.000-07:00",
+      "updated_at": "2023-10-02T21:07:56.000-07:00",
+      "plan_x_coord": 488,
+      "plan_y_coord": 485,
+      "old_park_id": 2,
+      "old_attraction_id": 59,
+      "plan_name": "Dine at The Garden Grill Restaurant",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL098",
+      "short_name": "Garden Grill",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "the Land Pavilion",
+      "operator_id": 90002237,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/garden-grill-restaurant/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "garden grill restaurant",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.374039",
+      "longitude": "-81.552324",
+      "summary_at_top": false,
+      "themeparks_id": "d4179c4c-eb08-4559-aa7c-f9802fda641b"
+    },
+    {
+      "id": 20,
+      "land_id": 9,
+      "name": "La Hacienda de San Angel",
+      "permalink": "la-hacienda-de-san-angel",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "expensive",
+      "cuisine": "Mexican",
+      "phone_number": "407-939-3463",
+      "entree_range": "Dinner: Adult $12-35",
+      "when_to_go": "Dinner",
+      "parking": "Epcot lot",
+      "bar": "Full",
+      "wine_list": "All Mexican",
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "10:30 AM to Park Close",
+      "dinner_hours": "4:00 PM to 8:35 PM",
+      "selection": "Guacamole, queso fundido, pork confit carnitas, taco sampler, short ribs with chimichurri; fried shrimp tacos.",
+      "setting_atmosphere": "Right along the waterfront in Mexico, La Hacienda\r\nis a primo spot for watching fireworks through the tall windows. The\r\ninterior has authentic touches of Mexico in its lighting and decor.",
+      "other_recommendations": "For starters, try the flautas—fried tortillas\r\nwith potato, chipotle chicken, cheese, and ranchero sauce. The margaritas\r\nare the real deal—or just go for a flight of fine tequila.\r\n",
+      "summary": "The menu is simple, but the quality is first rate.\r\nAlso, one word: tequila.",
+      "house_specialties": "Excellent guacamole; queso fundido; carne asada–style\r\nNew York strip; flank steak fajitas with bacon, poblano and bell peppers,\r\ncheese, and salsa; and fried-shrimp tacos with chipotle-lime aioli.",
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 3.5,
+      "table_value_rating": 2.5,
+      "overall_rating": 3.0,
+      "service_rating": 4.0,
+      "friendliness_rating": 5.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": null,
+      "adult_dinner_menu_url": "http://allears.net/menu/menu_haci.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:57.000-07:00",
+      "updated_at": "2023-08-26T21:07:50.000-07:00",
+      "plan_x_coord": 212,
+      "plan_y_coord": 325,
+      "old_park_id": 2,
+      "old_attraction_id": 46,
+      "plan_name": "Dine at La Hacienda de San Angel",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL020",
+      "short_name": "La Hacienda",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Mexico Pavilion",
+      "operator_id": 15525573,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/hacienda-de-san-angel/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "hacienda de san angel",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.371221",
+      "longitude": "-81.547532",
+      "summary_at_top": false,
+      "themeparks_id": "5b7cf10a-763b-45ba-9049-87140270826f"
+    },
+    {
+      "id": 13,
+      "land_id": 9,
+      "name": "Monsieur Paul",
+      "permalink": "monsieur-paul",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "expensive",
+      "cuisine": "French",
+      "phone_number": "407-939-3463",
+      "entree_range": "Dinner: Adult $175",
+      "when_to_go": "Late dinner",
+      "parking": "Epcot or BoardWalk lot; enter through back gate",
+      "bar": "Full Service",
+      "wine_list": "Good but pricey",
+      "dress": "Minimum Dress Code Required",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "10:30 AM to Park Close",
+      "dinner_hours": "5:30 PM to 8:35 PM",
+      "selection": "Maine lobster with sauteed mushrooms, poached egg, creamy black-truffle bouillon, lamb tenderloin, roasted duck breast",
+      "setting_atmosphere": "Light and modern, Monsieur Paul is tucked\r\naway at the France Pavilion. Access lies up a stairway lined with photos\r\nof legendary chef Paul Bocuse, whose son, Jérôme, owns and runs the\r\nrestaurant, along with Chefs de France. Despite the relaxed ambience, the\r\ncuisine is upscale, with sublime sauces and classic preparations. Request\r\na table at the windows to watch the world go by on World Showcase\r\nLagoon. Seats just 120.\r\n</p>\r\n",
+      "other_recommendations": null,
+      "summary": "Monsieur Paul may be a bit formal and highpriced\r\nfor many park guests, but if you can get past the sticker shock, this\r\nis the spot for a quiet dinner and conversation. Chef Nicolas Lemoyne, who\r\nworked at l’Auberge du Pont de Collonges in Lyon, France, wows diners with\r\nclassic French tastes, including warm chocolate-almond cake with raspberry\r\ncoulis. There’s also a three-course fixed-price menu,\r\nalong with a solid wine list. A rather grown-up kids’ menu includes roasted\r\nsalmon and grilled beef tenderloin.",
+      "house_specialties": null,
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 4.5,
+      "table_value_rating": 3.0,
+      "overall_rating": 4.0,
+      "service_rating": 4.0,
+      "friendliness_rating": 5.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": null,
+      "adult_dinner_menu_url": "http://allears.net/menu/men_bisd.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:57.000-07:00",
+      "updated_at": "2023-05-24T10:48:18.000-07:00",
+      "plan_x_coord": 480,
+      "plan_y_coord": 185,
+      "old_park_id": 2,
+      "old_attraction_id": 62,
+      "plan_name": "Dine at Bistro de Paris",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL013",
+      "short_name": "Monsieur Paul",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "France Pavilion",
+      "operator_id": 90001296,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/monsieur-paul/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "monsieur paul",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.350872",
+      "longitude": "-81.542943",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 62,
+      "land_id": 9,
+      "name": "Nine Dragons Restaurant",
+      "permalink": "nine-dragons-restaurant",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "moderate",
+      "cuisine": "Chinese",
+      "phone_number": "407-939-3463",
+      "entree_range": "Lunch: Adult $20-30. Dinner: Adult $20-30",
+      "when_to_go": "Lunch or dinner",
+      "parking": "Epcot lot",
+      "bar": "Full service",
+      "wine_list": "Minimal",
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "11:30 AM to 4:00 PM",
+      "dinner_hours": "4:30 PM to Park Close",
+      "selection": "Pork steamed buns, kung pao shrimp, Beijing roast duck salad, five-spiced fish.",
+      "setting_atmosphere": "Nine Dragons’ attractive interior—subdued\r\nwood tones, colorful lanterns, beautiful backlit glass sculptures from China—\r\nand efficient service create a respite from the bustle of World Showcase.\r\nAsk for a window seat for a view of passersby on the promenade.",
+      "other_recommendations": "Stick to the appetizers and put the chili oil on\r\neverything. It’s made in-house and should be sold as a souvenir.",
+      "summary": "You can usually get a table without a wait in\r\nthe spacious dining room, and while Nine Dragons gets a bad rep for being\r\npricey, we think the food and service are above average.",
+      "house_specialties": null,
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 2.0,
+      "table_value_rating": 2.0,
+      "overall_rating": 2.0,
+      "service_rating": 3.0,
+      "friendliness_rating": 4.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/menu_9dl.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/menu_9dd.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": "http://allears.net/menu/men_9dk.htm",
+      "child_dinner_menu_url": "http://allears.net/menu/men_9dk.htm",
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:58.000-07:00",
+      "updated_at": "2023-10-02T21:07:54.000-07:00",
+      "plan_x_coord": 156,
+      "plan_y_coord": 267,
+      "old_park_id": 2,
+      "old_attraction_id": 69,
+      "plan_name": "Dine at Nine Dragons Restaurant",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL062",
+      "short_name": "Nine Dragons",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "China Pavilion",
+      "operator_id": 90001985,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/nine-dragons-restaurant/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "nine dragons restaurant",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.370056",
+      "longitude": "-81.546688",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 78,
+      "land_id": 9,
+      "name": "Rose & Crown Dining Room",
+      "permalink": "rose-and-crown-dining-room",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "moderate",
+      "cuisine": "English",
+      "phone_number": "407-939-3463",
+      "entree_range": "Dinner: Child $15",
+      "when_to_go": "Lunch or dinner",
+      "parking": "Epcot lot",
+      "bar": "Full bar with Bass, Guinness, and Harp beers on tap.",
+      "wine_list": "Limited",
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "12:00 PM to 3:20 PM",
+      "dinner_hours": "4:30 PM to Park Close",
+      "selection": "Fish and chips, Scotch egg, chicken masala, bangers and chips, Guinness, Harp, and Bass beers, as well as other spirits",
+      "setting_atmosphere": "Pub in the front, dining room in the back. The\r\npub hops with activity from open to close and has the look and feel of a\r\ntraditional English watering hole: a large, cozy bar with rich wood appointments,\r\nbeamed ceilings, and a hardwood floor. The adjoining dining room\r\nis rustic and simple.",
+      "other_recommendations": null,
+      "summary": "At dinnertime, the Rose & Crown is packed\r\nwith folks appropriating tables for the EPCOT fireworks. The food is\r\ngood, so branch out and try something new—you can always get fishand-\r\nchips at the adjacent walk-up window, Yorkshire County Fish Shop.",
+      "house_specialties": "Fish and chips, bangers and mash (sausage and mashed\r\npotatoes) and shepherd's pie (the vegetarian\r\nversion is delicious too), washed down with Bass ale. For dessert try the Sticky Toffee Pudding.",
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 3.5,
+      "table_value_rating": 2.0,
+      "overall_rating": 3.0,
+      "service_rating": 5.0,
+      "friendliness_rating": 5.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/menus.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/menu_rc.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:58.000-07:00",
+      "updated_at": "2023-06-01T11:08:06.000-07:00",
+      "plan_x_coord": 425,
+      "plan_y_coord": 282,
+      "old_park_id": 2,
+      "old_attraction_id": 53,
+      "plan_name": "Dine at Rose and Crown Dining Room",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL078",
+      "short_name": "Rose & Crown",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": null,
+      "operator_id": 90002084,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/rose-and-crown-dining-room/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "rose crown dining room",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.370508",
+      "longitude": "-81.551684",
+      "summary_at_top": false,
+      "themeparks_id": "6ecdbfc8-85c2-436d-893b-6db0f437b74a"
+    },
+    {
+      "id": 82,
+      "land_id": 9,
+      "name": "San Angel Inn Restaurante",
+      "permalink": "san-angel-inn",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "expensive",
+      "cuisine": "Mexican",
+      "phone_number": "407-939-3463",
+      "entree_range": "Lunch: Adult $18-54. Dinner: Adult $18-54",
+      "when_to_go": "Lunch or dinner",
+      "parking": "Epcot lot",
+      "bar": "Full service",
+      "wine_list": "Limited",
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "11:30 AM to 4:00 PM",
+      "dinner_hours": "4:30 PM to Park Close",
+      "selection": "Corn cakes, quesadillas, queso fresco, chile relleno, carne asada, cheesecake with cajeta",
+      "setting_atmosphere": "Step inside the Aztec pyramid in Mexico, navigate\r\nthe busy marketplace, and end up at San Angel Inn, which overlooks\r\na starry sky and the Gran Fiesta Tour boat ride. Its decor is inspired by the\r\noriginal San Angel Inn in Mexico City and is incredibly atmospheric—it\r\nreally does feel like you’re dining in an outdoor Mexican square.",
+      "other_recommendations": "Ribeye tacos should please almost anyone.\r\nTry the sweet corn ice cream for dessert.",
+      "summary": "The prices may be steep, but the menu goes\r\nbeyond the typical tacos and such, offering regional dishes that are difficult\r\nto find in the States. Request a waterside table overlooking the boat\r\nride for more room and a slightly quieter evening. The dining room is a\r\ncool, quiet respite from the theme park—but you might need a flashlight\r\nto read the menu.",
+      "house_specialties": null,
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 3.0,
+      "table_value_rating": 2.0,
+      "overall_rating": 3.0,
+      "service_rating": 3.0,
+      "friendliness_rating": 3.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/men_mexl.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/menu_mex.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": "http://allears.net/menu/men_mek.htm",
+      "child_dinner_menu_url": "http://allears.net/menu/men_mek.htm",
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:58.000-07:00",
+      "updated_at": "2023-10-02T21:07:55.000-07:00",
+      "plan_x_coord": 178,
+      "plan_y_coord": 367,
+      "old_park_id": 2,
+      "old_attraction_id": 70,
+      "plan_name": "Dine at San Angel Inn",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL082",
+      "short_name": "San Angel Inn",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Mexico Pavilion",
+      "operator_id": 90002100,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/san-angel-inn-restaurante/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "san angel inn restaurante",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.371612",
+      "longitude": "-81.547258",
+      "summary_at_top": false,
+      "themeparks_id": "07263f57-0431-4da2-a8b6-77d2965a6f83"
+    },
+    {
+      "id": 1298,
+      "land_id": 9,
+      "name": "Shiki-Sai: Sushi Izakaya",
+      "permalink": "shiki-sai-sushi-izakaya",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "expensive",
+      "cuisine": "Japanese",
+      "phone_number": null,
+      "entree_range": null,
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": null,
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": null,
+      "dinner_hours": null,
+      "selection": "Sushi, grilled items, okonomiyaki",
+      "setting_atmosphere": null,
+      "other_recommendations": null,
+      "summary": "Japanese restaurant that replaced Tokyo Dining on the second level of the Japan Pavilion. It offers shareable sushi and grilled items in the form of small dishes.",
+      "house_specialties": null,
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": null,
+      "table_value_rating": null,
+      "overall_rating": null,
+      "service_rating": null,
+      "friendliness_rating": null,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": null,
+      "adult_dinner_menu_url": null,
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2023-05-09T11:56:31.000-07:00",
+      "updated_at": "2023-08-28T19:55:54.000-07:00",
+      "plan_x_coord": 382,
+      "plan_y_coord": 108,
+      "old_park_id": null,
+      "old_attraction_id": null,
+      "plan_name": "Dine at Shiki-Sai: Sushi Izakaya",
+      "extinct_on": null,
+      "opened_on": "2023-08-30",
+      "disney_permalink": null,
+      "code": "ORL914",
+      "short_name": "Shiki-Sai: Sushi Izakaya",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Japan Pavilion, Second Floor",
+      "operator_id": 221626,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/shiki-sai-izakaya-and-sushi/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": 104,
+      "sort_name": "shiki sai sushi izakaya",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.367709",
+      "longitude": "-81.550701",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 1217,
+      "land_id": 146,
+      "name": "Space 220 Restaurant",
+      "permalink": "space-220",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "moderate",
+      "cuisine": "Fixed-Price American Menu",
+      "phone_number": "(407) 939-5277",
+      "entree_range": "Lunch: Adult $55, Child $29. Dinner: Adult $79, Child $29",
+      "when_to_go": "Lunch or dinner",
+      "parking": "EPCOT parking lot",
+      "bar": "10-seat bar",
+      "wine_list": "Yes",
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "11 AM to 4 PM",
+      "dinner_hours": "4 PM to park close",
+      "selection": "Modern American cuisine",
+      "setting_atmosphere": "<p>\r\nThe premise for Space 220 is that you're dining at the Centauri space station, tethered to Florida and flying 220 miles above Epcot. You are seated at tables that look out into space as different astronauts float by on hoverboards or in their space suits. \r\n</p>\r\n<p>There are 15 tables in the lounge area, either white or gray, and are in the section next to the bar on the right of the room. The best seats are the 22 window booths, each of which fit 4 people and have spectacular \"views\".  Another 50 tables are spread over the base and upper level of the restaurant.\r\n</p>\r\n",
+      "other_recommendations": null,
+      "summary": "Space 220 has the best entrance experience of any Walt Disney World restaurant, and the food is good too.  Yes, it's pricey, but to us it's a better value than the Droid Depot at Disney's Hollywood Studios. You'll spend less per person here and you won't feel nearly as rushed. Space 220 offers fixed-price menus for lunch and dinner.  Each includes an appetizer and entree, and for dinner you also get dessert. Several up-charge extras, such as lobster, are also available.",
+      "house_specialties": "<",
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 4.0,
+      "table_value_rating": 3.5,
+      "overall_rating": 4.0,
+      "service_rating": 4.0,
+      "friendliness_rating": 4.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": null,
+      "adult_dinner_menu_url": null,
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2019-08-27T05:26:02.000-07:00",
+      "updated_at": "2023-10-02T21:08:05.000-07:00",
+      "plan_x_coord": 154,
+      "plan_y_coord": 466,
+      "old_park_id": null,
+      "old_attraction_id": null,
+      "plan_name": "Dine at Space 220",
+      "extinct_on": null,
+      "opened_on": "2021-09-20",
+      "disney_permalink": null,
+      "code": "ORL860",
+      "short_name": "Space 220",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "next to Mission: SPACE",
+      "operator_id": 19433706,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/space-220/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": 841,
+      "sort_name": "space 220 restaurant",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.373777",
+      "longitude": "-81.547056",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 515,
+      "land_id": 9,
+      "name": "Spice Road Table",
+      "permalink": "spice-road-table",
+      "category_code": "table_service",
+      "portion_size": "Small Plates",
+      "cost_code": "moderate",
+      "cuisine": "Moroccan",
+      "phone_number": null,
+      "entree_range": null,
+      "when_to_go": null,
+      "parking": null,
+      "bar": null,
+      "wine_list": null,
+      "dress": null,
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "10:30 AM to Park Close",
+      "dinner_hours": null,
+      "selection": "Lamb sliders with tzatziki, hummus and grape leaves appetizers.",
+      "setting_atmosphere": "A prime location for daytime people-watching\r\nand nighttime fireworks, Spice Road Table is situated directly along World\r\nShowcase Lagoon at the front of the Morocco Pavilion. The outdoor covered\r\npatio features excellent dining in plein air when Florida weather cooperates,\r\nand indoor seating provides colorful pops of modern Moroccan decor.",
+      "other_recommendations": "Lamb kefta with tzatziki offers a bit of punch\r\nand spice. Spiced shrimp and chicken may sound simple, but the accompanying\r\nsauces and sides elevate the otherwise pedestrian dish to the\r\nnext level.",
+      "summary": "Food quality and service are good here. Appetizers and desserts pair excellently with the restaurant’s extensive wine and cocktail lists. Service is attentive, and the casual atmosphere seems appropriate to the outdoor seating area and modern EPCOT.",
+      "house_specialties": "Perfectly fried calamari and hummus fries stand out as\r\nfavorites on the small-plates side of the menu.",
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 4.0,
+      "table_value_rating": 3.0,
+      "overall_rating": 4.0,
+      "service_rating": 5.0,
+      "friendliness_rating": 5.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": null,
+      "adult_dinner_menu_url": null,
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": false,
+      "requires_pre_payment": false,
+      "created_at": "2012-09-09T21:30:56.000-07:00",
+      "updated_at": "2023-04-18T07:46:06.000-07:00",
+      "plan_x_coord": 426,
+      "plan_y_coord": 166,
+      "old_park_id": null,
+      "old_attraction_id": null,
+      "plan_name": "Dine at Spice Road Table",
+      "extinct_on": null,
+      "opened_on": "2014-01-20",
+      "disney_permalink": null,
+      "code": "ORL526",
+      "short_name": "Spice Rd Table",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Morocco Pavilion",
+      "operator_id": 17720675,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/spice-road-table/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "spice road table",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.368468",
+      "longitude": "-81.551645",
+      "summary_at_top": false,
+      "themeparks_id": "dbf4a977-a7b5-41db-a9b7-ecad65f9aa0f"
+    },
+    {
+      "id": 919,
+      "land_id": 9,
+      "name": "Takumi-Tei",
+      "permalink": "takumi-tei",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "expensive",
+      "cuisine": "Japanese",
+      "phone_number": null,
+      "entree_range": "Dinner: Adult $250, Child $100",
+      "when_to_go": "Dinner",
+      "parking": "Epcot lot",
+      "bar": "Full",
+      "wine_list": "Yes",
+      "dress": "Business casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": null,
+      "dinner_hours": "5:00pm-7:30pm",
+      "selection": "Ponzu crab and toasted crab snacks. Japanese A-5 Wagyu beef tenderloin, roasted duck, sea bass.",
+      "setting_atmosphere": "Takumi-Tei's decor celebrates five natural\r\nelements revered by Japanese craftsmen: water, wood, earth, stone, and\r\nwashi (paper). The private dining room, home to traditional kaiseki dining,\r\nfeatures a custom waterfall on its feature wall that is designed to\r\nlook like it’s flowing straight into the dining table.",
+      "other_recommendations": "<p>Sashimi and nigiri with the freshest fish you’ll\r\never taste; specialty desserts tailor-made for Instagramming, including the\r\nclear, perplexingly delicious Japanese water cake.\r\n</p>\r\n<p>\r\n<a href=\"/blog/2019/07/09/takumi-tei-chefs-table-new-best-meal-at-walt-disney-world/\">Read our review of the Chef's Table experience here.</a>\r\n</p>",
+      "summary": "Filtering classical Japanese cookery through an\r\nupscale modern lens, Takumi-Tei treats diners to an indulgent retreat from\r\nthe hustle and bustle of the theme park.",
+      "house_specialties": "The menu rotates seasonally to reflect the freshest and\r\nmost seasonal produce at the chef’s disposal. The Hama no Kani (“Crab on\r\nthe Beach”) appetizer playfully combines two different crab preparations\r\nwith frisée, heirloom tomato, and pickled watermelon. A-5 Wagyu beef—the\r\nmost prized in the world—anchors the main-course menu, and while it’s a\r\nsignificant spend, it makes for a meal unlike any other.",
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 5.0,
+      "table_value_rating": 3.5,
+      "overall_rating": 4.5,
+      "service_rating": 5.0,
+      "friendliness_rating": 5.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": null,
+      "adult_dinner_menu_url": null,
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2015-10-06T18:42:54.000-07:00",
+      "updated_at": "2023-01-25T20:06:40.000-08:00",
+      "plan_x_coord": 388,
+      "plan_y_coord": 117,
+      "old_park_id": null,
+      "old_attraction_id": null,
+      "plan_name": "Dine at Takumi-Tei",
+      "extinct_on": null,
+      "opened_on": "2019-07-05",
+      "disney_permalink": null,
+      "code": "ORL667",
+      "short_name": "Takumi-Tei",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Japan Pavilion",
+      "operator_id": 19317888,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/takumi-tei-restaurant/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": 104,
+      "sort_name": "takumi tei",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.367848",
+      "longitude": "-81.550833",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 95,
+      "land_id": 9,
+      "name": "Teppan Edo",
+      "permalink": "teppan-edo",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "expensive",
+      "cuisine": "Japanese",
+      "phone_number": "407-939-3463",
+      "entree_range": "Lunch: Adult $15-65. Dinner: Adult $15-65",
+      "when_to_go": "Lunch or dinner",
+      "parking": "Epcot lot",
+      "bar": "Full service",
+      "wine_list": "Limited",
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "12:00 PM to 3:45 PM",
+      "dinner_hours": "4:00 PM to Park Close",
+      "selection": "Shrimp tempura roll, salmon, filet mignon, green tea mousse cake",
+      "setting_atmosphere": "Six Japanese dining rooms with grills on tables\r\nand entertaining chefs chopping, slicing, and dicing.",
+      "other_recommendations": "Watching the teppanyaki chefs.",
+      "summary": "A popular dining option for families, Teppan\r\nEdo was the highest-rated restaurant in Walt Disney World over the past\r\nyear. The food quality is comparable to what you’d get in a hometown teppan\r\nplace. You’ll get plenty to eat, and the starters include sushi, ribs, edamame,\r\nand miso soup. What’s not to like?",
+      "house_specialties": "Chicken, shrimp, beef, scallops, and Asian vegetables\r\nstir-fried on a teppanyaki grill by a knife-juggling chef.",
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 4.0,
+      "table_value_rating": 3.0,
+      "overall_rating": 3.5,
+      "service_rating": 5.0,
+      "friendliness_rating": 5.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/menu_teppan.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/menu_teppan.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": "http://allears.net/menu/menu_teppan.htm",
+      "child_dinner_menu_url": "http://allears.net/menu/menu_teppan.htm",
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:58.000-07:00",
+      "updated_at": "2023-10-02T21:07:56.000-07:00",
+      "plan_x_coord": 382,
+      "plan_y_coord": 114,
+      "old_park_id": 2,
+      "old_attraction_id": 68,
+      "plan_name": "Dine at Teppan Edo",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL095",
+      "short_name": "Teppan Edo",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Japan Pavilion",
+      "operator_id": 221625,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/teppan-edo/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "teppan edo",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.367674",
+      "longitude": "-81.550701",
+      "summary_at_top": false,
+      "themeparks_id": "17d51899-7d6d-4cd7-93bb-4064a47d501b"
+    },
+    {
+      "id": 111,
+      "land_id": 9,
+      "name": "Tutto Italia Ristorante",
+      "permalink": "tutto-italia-ristorante",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "expensive",
+      "cuisine": "Italian",
+      "phone_number": "407-939-3463",
+      "entree_range": "Lunch: Adult $11-43. Dinner: Adult $11-43",
+      "when_to_go": "Midafternoon",
+      "parking": "Epcot lot",
+      "bar": "Beer and wine only",
+      "wine_list": "All Italian",
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "11:30 AM to 3:30 PM",
+      "dinner_hours": "4:30 PM to Park Close",
+      "selection": "Mozzarella with roasted peppers and basil, pollo e sfilatino, panna cotta, gelato",
+      "setting_atmosphere": "Tutto Italia feels like a big restaurant in Rome\r\nor Milan, with murals of a piazza along the wall behind upholstered banquettes.\r\nIt can get noisy—if the weather is nice, request an outside table.",
+      "other_recommendations": "Stick to the least-expensive menu items.",
+      "summary": "This should be one of the best Italian restaurants\r\nin Orlando, but it’s not. Everything that happens inside Tutto Italia—\r\nfrom the cooking to the service—feels like it’s done on autopilot. The food\r\nquality can’t support the prices, even taking the Disney “bubble” cost premium\r\ninto account: over $35 for chicken parm is double what you’d pay in\r\nmany neighborhood Italian joints and 30% more expensive than in Manhattan.\r\nEverything here needs to be done better.",
+      "house_specialties": "It’s hard to identify anything as being done particularly\r\nwell.",
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 4.0,
+      "table_value_rating": 3.0,
+      "overall_rating": 3.0,
+      "service_rating": 4.0,
+      "friendliness_rating": 4.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://www.allearsnet.com/menu/menu_itl.htm",
+      "adult_dinner_menu_url": "http://www.allearsnet.com/menu/menu_itd.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": "http://allears.net/menu/menu_itk.htm",
+      "child_dinner_menu_url": "http://allears.net/menu/menu_itk.htm",
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:58.000-07:00",
+      "updated_at": "2023-10-02T21:07:56.000-07:00",
+      "plan_x_coord": 230,
+      "plan_y_coord": 111,
+      "old_park_id": 2,
+      "old_attraction_id": 64,
+      "plan_name": "Dine at Tutto Italia Ristorante",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL111",
+      "short_name": "Tutto Italia",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Italy Pavilion",
+      "operator_id": 220739,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/tutto-italia-ristorante/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "tutto italia ristorante",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.367627",
+      "longitude": "-81.548052",
+      "summary_at_top": false,
+      "themeparks_id": null
+    },
+    {
+      "id": 144,
+      "land_id": 9,
+      "name": "Via Napoli Ristorante e Pizzeria",
+      "permalink": "via-napoli",
+      "category_code": "table_service",
+      "portion_size": null,
+      "cost_code": "moderate",
+      "cuisine": "Italian",
+      "phone_number": "407-939-3463",
+      "entree_range": "Lunch: Adult $11. Dinner: Adult $11",
+      "when_to_go": "Lunch or dinner",
+      "parking": "Epcot parking lot",
+      "bar": "Beer and wine only",
+      "wine_list": null,
+      "dress": "Casual",
+      "awards": null,
+      "breakfast_hours": null,
+      "lunch_hours": "11:30 AM to 3:15 PM",
+      "dinner_hours": "4:30 PM to 9:00 PM",
+      "selection": "The best pizza in Walt Disney World",
+      "setting_atmosphere": "Three big pizza ovens, named after the three\r\nactive Italian volcanoes—Etna, Vesuvio, and Stromboli—are the stars of the\r\nshow in this loud, cavernous dining room.",
+      "other_recommendations": null,
+      "summary": "The Carciofi (artichokes, fontina, and truffle\r\noil) and four-cheese pies are our favorites.\r\n",
+      "house_specialties": "The best pizza in Walt Disney World.",
+      "counter_quality_rating": null,
+      "counter_value_rating": null,
+      "table_quality_rating": 3.5,
+      "table_value_rating": 3.0,
+      "overall_rating": 4.0,
+      "service_rating": 4.0,
+      "friendliness_rating": 4.0,
+      "adult_breakfast_menu_url": null,
+      "adult_lunch_menu_url": "http://allears.net/menu/menu_vianap.htm",
+      "adult_dinner_menu_url": "http://allears.net/menu/menu_vianap.htm",
+      "child_breakfast_menu_url": null,
+      "child_lunch_menu_url": null,
+      "child_dinner_menu_url": null,
+      "requires_credit_card": true,
+      "requires_pre_payment": false,
+      "created_at": "2010-08-26T20:28:59.000-07:00",
+      "updated_at": "2023-10-02T21:07:58.000-07:00",
+      "plan_x_coord": 237,
+      "plan_y_coord": 86,
+      "old_park_id": 2,
+      "old_attraction_id": 871,
+      "plan_name": "Dine at Via Napoli",
+      "extinct_on": null,
+      "opened_on": null,
+      "disney_permalink": null,
+      "code": "ORL144",
+      "short_name": "Via Napoli",
+      "accepts_reservations": true,
+      "kosher_available": false,
+      "dinable_id": 2,
+      "dinable_type": "Park",
+      "location_details": "Italy Pavilion",
+      "operator_id": 15525574,
+      "operator_url": "https://disneyworld.disney.go.com/dining/epcot/via-napoli/",
+      "operator_type": "restaurant",
+      "walking_time_proxy_id": null,
+      "sort_name": "via napoli ristorante e pizzeria",
+      "mobile_ordering": false,
+      "extinct_on_uncertain": null,
+      "opened_on_uncertain": null,
+      "opened_on_known": null,
+      "operational_notes": null,
+      "latitude": "28.367506",
+      "longitude": "-81.548144",
+      "summary_at_top": false,
+      "themeparks_id": null
+    }
+]
+
+            
+        // For each of the restaurants in dataFood
+        for (let place of fData) {
+                let placeDiv = document.createElement('div');
+                placeDiv.classList.add('placeDetails');
+
+                let placeTitle = document.createElement('h3');
+                placeTitle.classList.add('placeTitle');
+                placeTitle.textContent = place.name;
+                placeDiv.appendChild(placeTitle);
+
+                let location = document.createElement('span');
+                location.classList.add('location');
+
+                let cost = place.cost_code;
+                if (cost == 'inexpensive') {
+                    location.textContent = '$';
+                } else if (cost == 'expensive') {
+                    location.textContent = '$';
+                    location.classList.add('expensive')                    ;
+                } else {
+                    location.textContent = '$?';                    
+                }
+                placeTitle.appendChild(location);
+
+                let infoDiv = document.createElement('div');
+
+                let summary = document.createElement('p');
+                summary.classList.add('info');
+                summary.textContent = place.summary;
+
+                let infoCost = document.createElement('span');
+                infoCost.classList.add('infoCost');
+
+                if (place.entree_range == null) {
+                    infoCost.textContent = '';
+                } else {
+                    infoCost.textContent = `Price Range: ${place.entree_range}`;
+                }
+
+                summary.appendChild(infoCost);
+
+                placeDiv.appendChild(summary);
+
+                // list.appendChild(placeDiv);
+                
+                // Append the land div to the list
+                rList.appendChild(placeDiv);
+            }
+            
+        
+        // Restaurants Accordion
+
+        let acc = document.getElementsByClassName('placeTitle');
+        let i;
+
+        for (i = 0; i < acc.length; i++){
+            acc[i].addEventListener('click', function() {
+                /* Toggle between adding and removing the "active" class 
+                    to highlight the button that controls the panel*/
+                this.classList.toggle('active');
+
+                // Toggle between hiding and showing the info panel
+                let panel = this.nextElementSibling;
+
+                // if (panel.style.display === "block") {
+                //     panel.style.display = "none";
+                // } else {
+                //     panel.style.display = "block";
+                // }
+
+                if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+                } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+        };
+
+
+    </script>
+
+</body>
+
+</html>

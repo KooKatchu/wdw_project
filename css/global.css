@@ -1,0 +1,28 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+#rideList {
+    display: block;
+}
+
+.rideTime {
+    padding: 0 10px;
+    background-color: purple;
+    color: whitesmoke;
+}
+
+.rideDetails {
+    border: 1px solid;
+    margin: 15px 0;
+    background-color: darkseagreen;
+    border-radius: 15px 20px;
+    padding: 10px;
+    box-shadow: 5px 10px 15px green;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .closed {
+    background-color: red;
+  }
